@@ -11,21 +11,20 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var React = require("react");
-require("../Styles/App.css");
-var Login_1 = require("./Login");
+var LoginContainer_1 = require("../Containers/LoginContainer");
+var SearchContainer_1 = require("../Containers/SearchContainer");
+var react_router_dom_1 = require("react-router-dom");
 var App = /** @class */ (function (_super) {
     __extends(App, _super);
     function App() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {
-            message: "typescripting"
-        };
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     App.prototype.render = function () {
-        return (<div className="App">
-        <Login_1["default"] email="me" username="tyler"/>
-      </div>);
+        return (React.createElement("div", { className: "app-div" },
+            React.createElement("h1", null, "Sweet Action"),
+            React.createElement(react_router_dom_1.NavLink, { to: "/login", className: "login-link" }, "Login"),
+            React.createElement(SearchContainer_1["default"], null),
+            React.createElement(react_router_dom_1.Route, { exact: true, path: "/login", component: LoginContainer_1["default"] })));
     };
     return App;
 }(React.Component));

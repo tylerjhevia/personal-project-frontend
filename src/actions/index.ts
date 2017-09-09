@@ -1,28 +1,36 @@
+import { Dispatch } from "redux";
+
 export type Action = {
-  type: "PRACTICE";
+  type: string;
   info: object;
 };
+
+export interface Thunk {
+  /*write stuff here
+  make separate file for interfaces*/
+}
 
 export interface Info {
   name: string;
   email: string;
+  password: string;
 }
 
-export const testAction = (info: Info): Action => ({
-  type: "PRACTICE",
+export const login = (info: Info): Action => ({
+  type: "LOGIN",
   info
 });
 
-export const storeBook = (info: object) => ({
+export const storeBook = (info: any) => ({
   type: "STORE_BOOK",
   info
 });
 
-export const getBookData = (url: string) => {
-  return dispatch => {
+export const getBookData = (url: string): any => {
+  return Dispatch => {
     fetch(url)
       .then(data => data.json())
-      .then(data => dispatchEvent(storeBook(data)));
+      .then(data => Dispatch(storeBook(data)));
   };
 };
 
@@ -31,6 +39,6 @@ export const getBookData = (url: string) => {
 //   hometown: string;
 // }
 
-// interface HeviaPerson extends Person {
+// interface GatorPerson extends Person {
 //   college: "University of Florida";
 // }

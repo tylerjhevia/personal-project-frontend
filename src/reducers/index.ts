@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import bookData from "./book-reducer";
 import user from "./user-reducer";
+import searchResults from "./book-reducer";
 
 const rootReducer = combineReducers({
-  bookData,
-  user
+  user,
+  searchResults
 });
 
 export default rootReducer;

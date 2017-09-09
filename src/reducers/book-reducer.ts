@@ -1,13 +1,14 @@
-import { Store } from "./store";
-import { testAction, Action, storeBook } from "../actions/index";
+import { Action, storeBook } from "../actions/index";
 
-const bookData = (state: object, action: Action) => {
+const initialState = "books";
+
+const searchResults = (state: any, action: Action) => {
   switch (action.type) {
     case "STORE_BOOK":
-      return action.info;
+      return action.info.items;
     default:
-      return state;
+      return initialState;
   }
 };
 
-export default bookData;
+export default searchResults;

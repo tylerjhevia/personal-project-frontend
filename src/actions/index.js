@@ -1,9 +1,24 @@
 "use strict";
 exports.__esModule = true;
-exports.incrementCounter = function (delta) { return ({
-    type: "INCREMENT_COUNTER",
-    delta: delta
+exports.login = function (info) { return ({
+    type: "LOGIN",
+    info: info
 }); };
-exports.resetCounter = function () { return ({
-    type: "RESET_COUNTER"
+exports.storeBook = function (info) { return ({
+    type: "STORE_BOOK",
+    info: info
 }); };
+exports.getBookData = function (url) {
+    return function (Dispatch) {
+        fetch(url)
+            .then(function (data) { return data.json(); })
+            .then(function (data) { return Dispatch(exports.storeBook(data)); });
+    };
+};
+// interface Person {
+//   name: string;
+//   hometown: string;
+// }
+// interface GatorPerson extends Person {
+//   college: "University of Florida";
+// }
