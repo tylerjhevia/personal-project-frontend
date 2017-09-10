@@ -19,6 +19,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 };
 exports.__esModule = true;
 var React = require("react");
+var SearchResultsContainer_1 = require("../Containers/SearchResultsContainer");
 var Search = /** @class */ (function (_super) {
     __extends(Search, _super);
     function Search(props) {
@@ -36,7 +37,10 @@ var Search = /** @class */ (function (_super) {
             React.createElement("button", { className: "search-button", onClick: function () {
                     return _this.props.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + _this.state
                         .searchText);
-                } }, "Search")));
+                } }, "Search"),
+            this.props.searchResults === "books"
+                ? React.createElement("p", null, "NO RESULTS")
+                : React.createElement(SearchResultsContainer_1["default"], null)));
     };
     return Search;
 }(React.Component));

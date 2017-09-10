@@ -1,4 +1,5 @@
 import * as React from "react";
+import SearchResults from "../Containers/SearchResultsContainer";
 
 interface SearchProps {
   searchResults: any;
@@ -37,6 +38,9 @@ export default class Search extends React.Component<SearchProps, SearchState> {
         >
           Search
         </button>
+        {this.props.searchResults === "books"
+          ? <p>NO RESULTS</p>
+          : <SearchResults />}
       </div>
     );
   }
