@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { register } from "../actions/index";
-import Login from "../Components/Login";
+import Register from "../Components/Register";
 import { bindActionCreators } from "redux";
 import { Store } from "../utils/interfaces";
 
@@ -10,7 +10,7 @@ const mapStateToProps = (state: Store) => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({}, dispatch);
+  return bindActionCreators({ register: register }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

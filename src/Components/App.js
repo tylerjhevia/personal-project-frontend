@@ -11,8 +11,10 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var React = require("react");
+require("../Styles/App.css");
 var LoginContainer_1 = require("../Containers/LoginContainer");
 var SearchContainer_1 = require("../Containers/SearchContainer");
+var RegisterContainer_1 = require("../Containers/RegisterContainer");
 var react_router_dom_1 = require("react-router-dom");
 var App = /** @class */ (function (_super) {
     __extends(App, _super);
@@ -21,10 +23,13 @@ var App = /** @class */ (function (_super) {
     }
     App.prototype.render = function () {
         return (React.createElement("div", { className: "app-div" },
-            React.createElement("h1", null, "Sweet Action"),
-            React.createElement(react_router_dom_1.NavLink, { to: "/login", className: "login-link" }, "Login"),
+            React.createElement("header", null,
+                React.createElement("h1", null, "Sweet Action"),
+                React.createElement(react_router_dom_1.NavLink, { to: "/login", className: "login-link" }, "Login"),
+                React.createElement(react_router_dom_1.NavLink, { to: "/register", className: "login-link" }, "Register")),
             React.createElement(SearchContainer_1["default"], null),
-            React.createElement(react_router_dom_1.Route, { exact: true, path: "/login", component: LoginContainer_1["default"] })));
+            React.createElement(react_router_dom_1.Route, { exact: true, path: "/login", component: LoginContainer_1["default"] }),
+            React.createElement(react_router_dom_1.Route, { exact: true, path: "/register", component: RegisterContainer_1["default"] })));
     };
     return App;
 }(React.Component));

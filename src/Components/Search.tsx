@@ -1,14 +1,6 @@
 import * as React from "react";
 import SearchResults from "../Containers/SearchResultsContainer";
-
-interface SearchProps {
-  searchResults: any;
-  getBookData: Function;
-}
-
-interface SearchState {
-  searchText: string;
-}
+import { SearchProps, SearchState } from "../utils/interfaces";
 
 export default class Search extends React.Component<SearchProps, SearchState> {
   constructor(props: SearchProps) {

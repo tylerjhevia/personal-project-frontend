@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
-exports.login = function (info) { return ({
-    type: "LOGIN",
+exports.register = function (info) { return ({
+    type: "REGISTER",
     info: info
 }); };
 exports.storeBook = function (info) { return ({

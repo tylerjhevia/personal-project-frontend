@@ -1,9 +1,6 @@
 import * as React from "react";
 import BookCard from "./BookCard";
-
-interface SearchResultsProps {
-  searchResults: Array<Object>;
-}
+import { BookObject, SearchResultsProps } from "../utils/interfaces";
 
 const SearchResults = (props: SearchResultsProps) => {
   const mappedResults = props.searchResults.map(book =>

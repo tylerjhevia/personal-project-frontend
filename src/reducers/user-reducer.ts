@@ -1,5 +1,5 @@
-// import { Store } from "./store";
-import { login, Action } from "../actions/index";
+import { register } from "../actions/index";
+import { Action } from "../utils/interfaces";
 
 const initialState = {
   name: "",
@@ -9,7 +9,7 @@ const initialState = {
 
 const user = (state: object = initialState, action: Action) => {
   switch (action.type) {
-    case "LOGIN":
+    case "REGISTER":
       return action.info;
     default:
       return initialState;
@@ -17,15 +17,3 @@ const user = (state: object = initialState, action: Action) => {
 };
 
 export default user;
-
-// const bookData = (state: object, action: Action) => {
-//   switch (action.type) {
-//     case "STORE_BOOK":
-//       return action.data;
-//     default:
-//       return state;
-//   }
-// };
-// const initialState: Store.Counter = {
-//   value: 0
-// };

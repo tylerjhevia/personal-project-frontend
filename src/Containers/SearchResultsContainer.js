@@ -7,6 +7,6 @@ var mapStateToProps = function (state) {
     return { searchResults: state.searchResults };
 };
 var mapDispatchToProps = function (dispatch) {
-    return redux_1.bindActionCreators({});
+    return redux_1.bindActionCreators({}, dispatch);
 };
 exports["default"] = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(SearchResults_1["default"]);
