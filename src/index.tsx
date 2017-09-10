@@ -14,12 +14,6 @@ const devtools: any = window["devToolsExtension"]
 let middleware = applyMiddleware(thunk);
 const store: any = middleware(devtools(createStore))(rootReducer, initialState);
 
-//
-// const devTools =
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-
-// const store = createStore(rootReducer, devTools, applyMiddleware(thunk));
-
 const router = (
   <Provider store={store}>
     <BrowserRouter>

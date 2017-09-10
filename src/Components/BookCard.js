@@ -3,7 +3,6 @@ exports.__esModule = true;
 var React = require("react");
 var BookCard = function (props) {
     var volumeInfo = props.book.volumeInfo;
-    console.log("volume info: ", volumeInfo);
     return (React.createElement("div", { className: "book-card" },
         React.createElement("h4", null, volumeInfo.title),
         React.createElement("h5", null, volumeInfo.authors ? volumeInfo.authors[0] : "No author, I guess"),

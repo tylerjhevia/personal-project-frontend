@@ -4,7 +4,6 @@ type BookCard = any;
 
 const BookCard = (props: BookCard) => {
   const { volumeInfo } = props.book;
-  console.log("volume info: ", volumeInfo);
   return (
     <div className="book-card">
       <h4>
