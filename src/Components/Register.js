@@ -19,6 +19,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 };
 exports.__esModule = true;
 var React = require("react");
+require("../Styles/Register.css");
 var Register = /** @class */ (function (_super) {
     __extends(Register, _super);
     function Register(props) {

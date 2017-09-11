@@ -11,18 +11,22 @@ export default class App extends React.Component<Props, {}> {
   public render(): React.ReactElement<{}> {
     return (
       <div className="app-div">
-        <header>
-          <h1>Sweet Action</h1>
-          <NavLink to="/login" className="login-link">
+        <header className="main-header">
+          <NavLink to="/" className="link home-link">
+            Sweet Action
+          </NavLink>
+          <NavLink to="/login" className="link login-link">
             Login
           </NavLink>
-          <NavLink to="/register" className="login-link">
+          <NavLink to="/register" className="link register-link">
             Register
           </NavLink>
         </header>
-        <Search />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
+        <div className="current-view">
+          <Route exact path="/" component={Search} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+        </div>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import * as React from "react";
 import SearchResults from "../Containers/SearchResultsContainer";
 import { SearchProps, SearchState } from "../utils/interfaces";
+import "../Styles/Search.css";
 
 export default class Search extends React.Component<SearchProps, SearchState> {
   constructor(props: SearchProps) {
@@ -25,7 +26,7 @@ export default class Search extends React.Component<SearchProps, SearchState> {
           onClick={() =>
             this.props.getBookData(
               `https://www.googleapis.com/books/v1/volumes?q=${this.state
-                .searchText}`
+                .searchText || "a"}`
             )}
         >
           Search

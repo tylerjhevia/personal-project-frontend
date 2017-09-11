@@ -19,6 +19,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 };
 exports.__esModule = true;
 var React = require("react");
+require("../Styles/Login.css");
 var Login = /** @class */ (function (_super) {
     __extends(Login, _super);
     function Login(props) {
