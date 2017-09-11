@@ -1,4 +1,4 @@
-.login-div {
+.register-div {
   align-items: center;
   background-color: #343434;
   display: flex;
@@ -8,15 +8,15 @@
   width: 50%;
 }
 
-.login-div input,
-.login-div button {
+.register-div input,
+.register-div button {
   font-size: 32px;
   height: 35px;
   text-align: center;
   width: 80%;
 }
 
-.login-button {
+.register-button {
   border: none;
   outline: none;
 }

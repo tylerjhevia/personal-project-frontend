@@ -1,4 +1,5 @@
 import * as React from "react";
+import "../Styles/Register.css";
 import {
   Info,
   RegistrationProps,

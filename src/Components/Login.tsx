@@ -1,4 +1,5 @@
 import * as React from "react";
+import "../Styles/Login.css";
 import { LoginProps, LoginState, User } from "../utils/interfaces";
 
 export default class Login extends React.Component<LoginProps, LoginState> {

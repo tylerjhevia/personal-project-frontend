@@ -20,6 +20,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 exports.__esModule = true;
 var React = require("react");
 var SearchResultsContainer_1 = require("../Containers/SearchResultsContainer");
+require("../Styles/Search.css");
 var Search = /** @class */ (function (_super) {
     __extends(Search, _super);
     function Search(props) {
@@ -35,8 +36,8 @@ var Search = /** @class */ (function (_super) {
         return (React.createElement("div", { className: "search-div" },
             React.createElement("input", { className: "search-input", placeholder: "Search for a book", onChange: function (e) { return _this.handleInput(e.target.value); } }),
             React.createElement("button", { className: "search-button", onClick: function () {
-                    return _this.props.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + _this.state
-                        .searchText);
+                    return _this.props.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + (_this.state
+                        .searchText || "a"));
                 } }, "Search"),
             this.props.searchResults === "books"
                 ? React.createElement("p", null, "NO RESULTS")
