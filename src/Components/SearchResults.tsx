@@ -9,9 +9,7 @@ const SearchResults = (props: SearchResultsProps) => {
   );
   return (
     <div className="search-results-div">
-      <h3>
-        {mappedResults}
-      </h3>
+      {mappedResults}
     </div>
   );
 };
