@@ -6,7 +6,7 @@
 .search-div {
   align-items: center;
   display: flex;
-  height: 60%;
+  height: 100%;
   flex-direction: column;
   justify-content: space-around;
   width: 100%;

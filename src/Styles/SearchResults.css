@@ -1,4 +1,11 @@
 .search-results-div {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   height: 100%;
+  justify-content: space-around;
+  margin: 10px;
   overflow: scroll;
+  width: 100%;
 }
