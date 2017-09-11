@@ -13,7 +13,7 @@ export default class App extends React.Component<Props, {}> {
       <div className="app-div">
         <header className="main-header">
           <NavLink to="/" className="link home-link">
-            Sweet Action
+            Search
           </NavLink>
           <NavLink to="/login" className="link login-link">
             Login

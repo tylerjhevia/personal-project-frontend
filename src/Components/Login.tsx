@@ -1,6 +1,8 @@
 import * as React from "react";
 import "../Styles/Login.css";
 import { LoginProps, LoginState, User } from "../utils/interfaces";
+import Register from "../Containers/RegisterContainer";
+import { NavLink } from "react-router-dom";
 
 export default class Login extends React.Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {
@@ -33,6 +35,9 @@ export default class Login extends React.Component<LoginProps, LoginState> {
           className="password-input"
         />
         <button className="login-button">Submit</button>
+        <NavLink to="/register" className="link register-link">
+          Don't have an account? <span>Sign up</span>
+        </NavLink>
       </div>
     );
   }
