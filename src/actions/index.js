@@ -15,10 +15,14 @@ exports.getBookData = function (url) {
             .then(function (data) { return Dispatch(exports.storeBook(data)); });
     };
 };
-// interface Person {
-//   name: string;
-//   hometown: string;
-// }
-// interface GatorPerson extends Person {
-//   college: "University of Florida";
-// }
+exports.storeUser = function (info) { return ({
+    type: "STORE_USER",
+    info: info
+}); };
+exports.addToLibrary = function (book) { return ({
+    type: "ADD_BOOK",
+    book: book
+}); };
+// export const login = (user: User) => {
+//   console.log(user);
+// };

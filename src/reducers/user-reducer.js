@@ -10,6 +10,8 @@ var user = function (state, action) {
     switch (action.type) {
         case "REGISTER":
             return action.info;
+        case "STORE_USER":
+            return action.info;
         default:
             return initialState;
     }
