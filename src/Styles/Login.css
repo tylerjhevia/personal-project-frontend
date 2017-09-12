@@ -20,3 +20,17 @@
   border: none;
   outline: none;
 }
+
+NavLink {
+  color: white;
+  font-size: 32px;
+}
+
+NavLink span {
+  text-decoration: underline;
+}
+
+NavLink:hover {
+  color: orange;
+  cursor: pointer;
+}

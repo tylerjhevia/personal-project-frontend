@@ -1,5 +1,11 @@
 import { Dispatch } from "redux";
-import { Action, Info } from "../utils/interfaces";
+import {
+  Action,
+  Info,
+  User,
+  FetchedData,
+  BookObject
+} from "../utils/interfaces";
 
 export interface Thunk {
   /*write stuff here
@@ -24,11 +30,16 @@ export const getBookData = (url: string): any => {
   };
 };
 
-// interface Person {
-//   name: string;
-//   hometown: string;
-// }
+export const storeUser = (info: object) => ({
+  type: "STORE_USER",
+  info
+});
 
-// interface GatorPerson extends Person {
-//   college: "University of Florida";
-// }
+export const addToLibrary = (book: BookObject) => ({
+  type: "ADD_BOOK",
+  book
+});
+
+// export const login = (user: User) => {
+//   console.log(user);
+// };

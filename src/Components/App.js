@@ -24,7 +24,7 @@ var App = /** @class */ (function (_super) {
     App.prototype.render = function () {
         return (React.createElement("div", { className: "app-div" },
             React.createElement("header", { className: "main-header" },
-                React.createElement(react_router_dom_1.NavLink, { to: "/", className: "link home-link" }, "Sweet Action"),
+                React.createElement(react_router_dom_1.NavLink, { to: "/", className: "link home-link" }, "Search"),
                 React.createElement(react_router_dom_1.NavLink, { to: "/login", className: "link login-link" }, "Login"),
                 React.createElement(react_router_dom_1.NavLink, { to: "/register", className: "link register-link" }, "Register")),
             React.createElement("div", { className: "current-view" },

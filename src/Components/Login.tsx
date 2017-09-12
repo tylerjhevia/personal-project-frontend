@@ -1,11 +1,20 @@
 import * as React from "react";
 import "../Styles/Login.css";
 import { LoginProps, LoginState, User } from "../utils/interfaces";
+import Register from "../Containers/RegisterContainer";
+import { NavLink } from "react-router-dom";
+import { fetchUserFromDB } from "../utils/usersAPI";
 
 export default class Login extends React.Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {
     super(props);
     this.state = { username: "", password: "" };
+  }
+
+  private componentDidMount() {
+    fetch("http://localhost:3000/api/v1/users")
+      .then(data => data.json())
+      .then(data => console.log(data));
   }
 
   private handleChange(
@@ -32,7 +41,20 @@ export default class Login extends React.Component<LoginProps, LoginState> {
           placeholder="password"
           className="password-input"
         />
-        <button className="login-button">Submit</button>
+        <button
+          className="login-button"
+          onClick={() => {
+            {
+              /*this.props.login(this.state);*/
+            }
+            fetchUserFromDB(this.state.username, this.state.password);
+          }}
+        >
+          Submit
+        </button>
+        <NavLink to="/register" className="link register-link">
+          Don't have an account? <span>Sign up</span>
+        </NavLink>
       </div>
     );
   }

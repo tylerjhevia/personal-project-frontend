@@ -20,6 +20,8 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 exports.__esModule = true;
 var React = require("react");
 require("../Styles/Login.css");
+var react_router_dom_1 = require("react-router-dom");
+var usersAPI_1 = require("../utils/usersAPI");
 var Login = /** @class */ (function (_super) {
     __extends(Login, _super);
     function Login(props) {
@@ -27,6 +29,11 @@ var Login = /** @class */ (function (_super) {
         _this.state = { username: "", password: "" };
         return _this;
     }
+    Login.prototype.componentDidMount = function () {
+        fetch("http://localhost:3000/api/v1/users")
+            .then(function (data) { return data.json(); })
+            .then(function (data) { return console.log(data); });
+    };
     Login.prototype.handleChange = function (value, field) {
         this.setState(__assign({}, this.state, (_a = {}, _a[field] = value, _a)));
         var _a;
@@ -36,7 +43,15 @@ var Login = /** @class */ (function (_super) {
         return (React.createElement("div", { className: "login-div" },
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "username"); }, placeholder: "username", className: "username-input" }),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "password"); }, placeholder: "password", className: "password-input" }),
-            React.createElement("button", { className: "login-button" }, "Submit")));
+            React.createElement("button", { className: "login-button", onClick: function () {
+                    {
+                        /*this.props.login(this.state);*/
+                    }
+                    usersAPI_1.fetchUserFromDB(_this.state.username, _this.state.password);
+                } }, "Submit"),
+            React.createElement(react_router_dom_1.NavLink, { to: "/register", className: "link register-link" },
+                "Don't have an account? ",
+                React.createElement("span", null, "Sign up"))));
     };
     return Login;
 }(React.Component));

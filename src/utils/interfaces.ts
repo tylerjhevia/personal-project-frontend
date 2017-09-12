@@ -22,6 +22,7 @@ export interface Store {
 
 export interface LoginProps {
   user: User;
+  login: Function;
 }
 
 export interface LoginState {
@@ -73,4 +74,8 @@ export interface BookObject {
 export interface State {
   user: object;
   searchResults: Array<BookObject>;
+}
+
+export interface FetchedData {
+  whatever: object;
 }
