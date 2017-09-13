@@ -1,12 +1,20 @@
 import * as React from "react";
 import "../Styles/BookCard.css";
+import { BookCardProps, BookObject } from "../utils/interfaces";
 
-type BookCard = any;
-
-const BookCard = (props: BookCard) => {
+const BookCard = (props: BookCardProps) => {
+  console.log("book card props", props);
   const { volumeInfo } = props.book;
+
   return (
-    <div className="book-card">
+    <div
+      className="book-card"
+      onClick={(e: Event) => {
+        e.preventDefault();
+        console.log("book props", props.book);
+        props.addToLibrary(props.book);
+      }}
+    >
       <img
         className="book-image"
         src={

@@ -7,11 +7,6 @@ import {
   BookObject
 } from "../utils/interfaces";
 
-export interface Thunk {
-  /*write stuff here
-  make separate file for interfaces*/
-}
-
 export const register = (info: Info): Action => ({
   type: "REGISTER",
   info
@@ -35,11 +30,7 @@ export const storeUser = (info: object) => ({
   info
 });
 
-export const addToLibrary = (book: BookObject) => ({
+export const addToLibrary = (info: object) => ({
   type: "ADD_BOOK",
-  book
+  info
 });
-
-// export const login = (user: User) => {
-//   console.log(user);
-// };

@@ -9,7 +9,7 @@ const mapStateToProps = (state: Store) => {
   return { currentUser: state.user };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators({ register: register }, dispatch);
 };
 

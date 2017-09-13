@@ -1,16 +1,16 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import SearchResults from "../Components/SearchResults";
+import { addToLibrary } from "../actions/index";
 import { bindActionCreators } from "redux";
 import { Store } from "../utils/interfaces";
-import { addToLibrary } from "../actions/index";
+import BookCard from "../Components/BookCard";
 
 const mapStateToProps = (state: Store) => {
-  return { searchResults: state.searchResults };
+  return {};
 };
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({ addToLibrary }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);
+export default connect(mapStateToProps, mapDispatchToProps)(BookCard);
