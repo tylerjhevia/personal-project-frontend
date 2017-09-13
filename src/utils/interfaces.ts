@@ -23,7 +23,7 @@ export interface Store {
 
 export interface LoginProps {
   user: User;
-  login: Function;
+  fetchUserFromDB: Function;
 }
 
 export interface LoginState {

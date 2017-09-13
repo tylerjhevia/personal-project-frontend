@@ -21,7 +21,6 @@ exports.__esModule = true;
 var React = require("react");
 require("../Styles/Login.css");
 var react_router_dom_1 = require("react-router-dom");
-var usersAPI_1 = require("../utils/usersAPI");
 var Login = /** @class */ (function (_super) {
     __extends(Login, _super);
     function Login(props) {
@@ -44,10 +43,7 @@ var Login = /** @class */ (function (_super) {
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "username"); }, placeholder: "username", className: "username-input" }),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "password"); }, placeholder: "password", className: "password-input" }),
             React.createElement("button", { className: "login-button", onClick: function () {
-                    {
-                        /*this.props.login(this.state);*/
-                    }
-                    usersAPI_1.fetchUserFromDB(_this.state.username, _this.state.password);
+                    _this.props.fetchUserFromDB(_this.state.username, _this.state.password);
                 } }, "Submit"),
             React.createElement(react_router_dom_1.NavLink, { to: "/register", className: "link register-link" },
                 "Don't have an account? ",

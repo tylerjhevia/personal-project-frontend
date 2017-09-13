@@ -20,6 +20,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 exports.__esModule = true;
 var React = require("react");
 require("../Styles/Register.css");
+var usersAPI_1 = require("../utils/usersAPI");
 var Register = /** @class */ (function (_super) {
     __extends(Register, _super);
     function Register(props) {
@@ -38,11 +39,12 @@ var Register = /** @class */ (function (_super) {
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "email"); }, placeholder: "email", className: "email-input" }),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "password"); }, placeholder: "password", className: "password-input" }),
             React.createElement("button", { className: "register-button", onClick: function (e) {
-                    return _this.props.register({
+                    _this.props.register({
                         username: _this.state.username,
                         email: _this.state.email,
                         password: _this.state.password
                     });
+                    usersAPI_1.createUserInDB(_this.state.username, _this.state.password, _this.state.email);
                 } }, "Create Account")));
     };
     return Register;

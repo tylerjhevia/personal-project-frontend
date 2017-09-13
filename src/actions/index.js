@@ -23,3 +23,14 @@ exports.addToLibrary = function (info) { return ({
     type: "ADD_BOOK",
     info: info
 }); };
+exports.fetchUserFromDB = function (username, password) {
+    return function (Dispatch) {
+        fetch("http://localhost:3000/api/v1/users", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username: username, password: password })
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (res) { return Dispatch(exports.storeUser(res)); })["catch"](function (error) { return error.message; });
+    };
+};

@@ -4,7 +4,8 @@ import {
   Info,
   User,
   FetchedData,
-  BookObject
+  BookObject,
+  LoginState
 } from "../utils/interfaces";
 
 export const register = (info: Info): Action => ({
@@ -34,3 +35,16 @@ export const addToLibrary = (info: object) => ({
   type: "ADD_BOOK",
   info
 });
+
+export const fetchUserFromDB = (username, password) => {
+  return Dispatch => {
+    fetch("http://localhost:3000/api/v1/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    })
+      .then(res => res.json())
+      .then(res => Dispatch(storeUser(res)))
+      .catch(error => error.message);
+  };
+};
