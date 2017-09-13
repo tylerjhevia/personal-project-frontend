@@ -8,8 +8,8 @@ var initialState = {
 var user = function (state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
-        case "REGISTER":
-            return action.info;
+        // case "REGISTER":
+        //   return action.info;
         case "STORE_USER":
             return action.info;
         default:

@@ -44,7 +44,7 @@ export interface RegistrationState {
 }
 
 export interface RegistrationProps {
-  register: Function;
+  createUserInDB: Function;
   user: Info;
 }
 

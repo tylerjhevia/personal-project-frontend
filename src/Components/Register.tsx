@@ -1,6 +1,5 @@
 import * as React from "react";
 import "../Styles/Register.css";
-import { createUserInDB } from "../utils/usersAPI";
 import {
   Info,
   RegistrationProps,
@@ -46,16 +45,12 @@ export default class Register extends React.Component<
         />
         <button
           className="register-button"
-          onClick={(e: Event) => {
-            this.props.register({
-              username: this.state.username,
-              email: this.state.email,
-              password: this.state.password
-            });
-            createUserInDB(
+          onClick={() => {
+            console.log("register");
+            this.props.createUserInDB(
               this.state.username,
-              this.state.password,
-              this.state.email
+              this.state.email,
+              this.state.password
             );
           }}
         >

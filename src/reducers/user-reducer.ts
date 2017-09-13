@@ -1,4 +1,4 @@
-import { register, storeUser } from "../actions/index";
+import { storeUser } from "../actions/index";
 import { Action, FetchedData } from "../utils/interfaces";
 
 const initialState = {
@@ -9,8 +9,8 @@ const initialState = {
 
 const user = (state: object = initialState, action: Action) => {
   switch (action.type) {
-    case "REGISTER":
-      return action.info;
+    // case "REGISTER":
+    //   return action.info;
     case "STORE_USER":
       return action.info;
     default:

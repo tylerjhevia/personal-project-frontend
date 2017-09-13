@@ -3,7 +3,6 @@ import "../Styles/Login.css";
 import { LoginProps, LoginState, User } from "../utils/interfaces";
 import Register from "../Containers/RegisterContainer";
 import { NavLink } from "react-router-dom";
-import { fetchUserFromDB } from "../utils/usersAPI";
 
 export default class Login extends React.Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {

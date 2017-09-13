@@ -1,9 +1,5 @@
 "use strict";
 exports.__esModule = true;
-exports.register = function (info) { return ({
-    type: "REGISTER",
-    info: info
-}); };
 exports.storeBook = function (info) { return ({
     type: "STORE_BOOK",
     info: info
@@ -32,5 +28,16 @@ exports.fetchUserFromDB = function (username, password) {
         })
             .then(function (res) { return res.json(); })
             .then(function (res) { return Dispatch(exports.storeUser(res)); })["catch"](function (error) { return error.message; });
+    };
+};
+exports.createUserInDB = function (username, email, password) {
+    return function (Dispatch) {
+        fetch("http://localhost:3000/api/v1/users/new", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username: username, password: password, email: email })
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (res) { return Dispatch(exports.fetchUserFromDB(username, password)); })["catch"](function (error) { return error.message; });
     };
 };

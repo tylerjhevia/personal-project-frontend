@@ -8,11 +8,6 @@ import {
   LoginState
 } from "../utils/interfaces";
 
-export const register = (info: Info): Action => ({
-  type: "REGISTER",
-  info
-});
-
 export const storeBook = (info: any) => ({
   type: "STORE_BOOK",
   info
@@ -45,6 +40,19 @@ export const fetchUserFromDB = (username, password) => {
     })
       .then(res => res.json())
       .then(res => Dispatch(storeUser(res)))
+      .catch(error => error.message);
+  };
+};
+
+export const createUserInDB = (username, email, password) => {
+  return Dispatch => {
+    fetch("http://localhost:3000/api/v1/users/new", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password, email })
+    })
+      .then(res => res.json())
+      .then(res => Dispatch(fetchUserFromDB(username, password)))
       .catch(error => error.message);
   };
 };
