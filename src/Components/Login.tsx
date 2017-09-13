@@ -41,10 +41,10 @@ export default class Login extends React.Component<LoginProps, LoginState> {
         <button
           className="login-button"
           onClick={() => {
-            {
-              /*this.props.login(this.state);*/
-            }
-            fetchUserFromDB(this.state.username, this.state.password);
+            this.props.fetchUserFromDB(
+              this.state.username,
+              this.state.password
+            );
           }}
         >
           Submit

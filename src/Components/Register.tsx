@@ -1,5 +1,6 @@
 import * as React from "react";
 import "../Styles/Register.css";
+import { createUserInDB } from "../utils/usersAPI";
 import {
   Info,
   RegistrationProps,
@@ -29,28 +30,34 @@ export default class Register extends React.Component<
     return (
       <div className="register-div">
         <input
-          onChange={e => this.handleChange(e.target.value, "username")}
+          onChange={(e: Event) => this.handleChange(e.target.value, "username")}
           placeholder="username"
           className="username-input"
         />
         <input
-          onChange={e => this.handleChange(e.target.value, "email")}
+          onChange={(e: Event) => this.handleChange(e.target.value, "email")}
           placeholder="email"
           className="email-input"
         />
         <input
-          onChange={e => this.handleChange(e.target.value, "password")}
+          onChange={(e: Event) => this.handleChange(e.target.value, "password")}
           placeholder="password"
           className="password-input"
         />
         <button
           className="register-button"
-          onClick={e =>
+          onClick={(e: Event) => {
             this.props.register({
               username: this.state.username,
               email: this.state.email,
               password: this.state.password
-            })}
+            });
+            createUserInDB(
+              this.state.username,
+              this.state.password,
+              this.state.email
+            );
+          }}
         >
           Create Account
         </button>

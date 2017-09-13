@@ -8,6 +8,6 @@ var mapStateToProps = function (state) {
     return { currentUser: state.user };
 };
 var mapDispatchToProps = function (dispatch) {
-    return redux_1.bindActionCreators({ login: index_1.login }, dispatch);
+    return redux_1.bindActionCreators({ fetchUserFromDB: index_1.fetchUserFromDB }, dispatch);
 };
 exports["default"] = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Login_1["default"]);
