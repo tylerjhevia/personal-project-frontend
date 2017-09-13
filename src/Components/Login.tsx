@@ -17,10 +17,7 @@ export default class Login extends React.Component<LoginProps, LoginState> {
       .then(data => console.log(data));
   }
 
-  private handleChange(
-    value: string,
-    field: "username" | "password" | "email"
-  ): void {
+  private handleChange(value: string, field: "username" | "password"): void {
     this.setState({
       ...this.state,
       [field]: value

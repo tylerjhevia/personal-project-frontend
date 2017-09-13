@@ -1,13 +1,13 @@
 "use strict";
 exports.__esModule = true;
 var react_redux_1 = require("react-redux");
-var SearchResults_1 = require("../Components/SearchResults");
-var redux_1 = require("redux");
 var index_1 = require("../actions/index");
+var redux_1 = require("redux");
+var BookCard_1 = require("../Components/BookCard");
 var mapStateToProps = function (state) {
-    return { searchResults: state.searchResults };
+    return {};
 };
 var mapDispatchToProps = function (dispatch) {
     return redux_1.bindActionCreators({ addToLibrary: index_1.addToLibrary }, dispatch);
 };
-exports["default"] = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(SearchResults_1["default"]);
+exports["default"] = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(BookCard_1["default"]);

@@ -1,5 +1,5 @@
 import * as React from "react";
-import BookCard from "./BookCard";
+import BookCard from "../Containers/BookCardContainer";
 import { BookObject, SearchResultsProps } from "../utils/interfaces";
 import "../Styles/SearchResults.css";
 

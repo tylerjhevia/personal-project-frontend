@@ -18,6 +18,7 @@ export interface Info {
 export interface Store {
   user: User;
   searchResults: Array<BookObject>;
+  library: Array<BookObject>;
 }
 
 export interface LoginProps {
@@ -65,10 +66,22 @@ export interface BookObject {
   id: string;
   etag: string;
   selfLink: string;
-  volumeInfo: object;
+  volumeInfo: VolumeInfo;
   saleInfo: object;
   accessInfo: object;
   searchInfo: object;
+}
+
+export interface VolumeInfo {
+  imageLinks: ImageLinks;
+  authors: Array<string>;
+  title: string;
+  description: string;
+}
+
+export interface ImageLinks {
+  smallThumbnail: string;
+  thumbnail: string;
 }
 
 export interface State {
@@ -78,4 +91,13 @@ export interface State {
 
 export interface FetchedData {
   whatever: object;
+}
+
+export interface LibraryProps {
+  library: Array<BookObject>;
+}
+
+export interface BookCardProps {
+  addToLibrary: Function;
+  book: BookObject;
 }

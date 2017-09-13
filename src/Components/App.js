@@ -15,6 +15,7 @@ require("../Styles/App.css");
 var LoginContainer_1 = require("../Containers/LoginContainer");
 var SearchContainer_1 = require("../Containers/SearchContainer");
 var RegisterContainer_1 = require("../Containers/RegisterContainer");
+var LibraryContainer_1 = require("../Containers/LibraryContainer");
 var react_router_dom_1 = require("react-router-dom");
 var App = /** @class */ (function (_super) {
     __extends(App, _super);
@@ -26,11 +27,13 @@ var App = /** @class */ (function (_super) {
             React.createElement("header", { className: "main-header" },
                 React.createElement(react_router_dom_1.NavLink, { to: "/", className: "link home-link" }, "Search"),
                 React.createElement(react_router_dom_1.NavLink, { to: "/login", className: "link login-link" }, "Login"),
-                React.createElement(react_router_dom_1.NavLink, { to: "/register", className: "link register-link" }, "Register")),
+                React.createElement(react_router_dom_1.NavLink, { to: "/register", className: "link register-link" }, "Register"),
+                React.createElement(react_router_dom_1.NavLink, { to: "/library", className: "link library-link" }, "Library")),
             React.createElement("div", { className: "current-view" },
                 React.createElement(react_router_dom_1.Route, { exact: true, path: "/", component: SearchContainer_1["default"] }),
                 React.createElement(react_router_dom_1.Route, { exact: true, path: "/login", component: LoginContainer_1["default"] }),
-                React.createElement(react_router_dom_1.Route, { exact: true, path: "/register", component: RegisterContainer_1["default"] }))));
+                React.createElement(react_router_dom_1.Route, { exact: true, path: "/register", component: RegisterContainer_1["default"] }),
+                React.createElement(react_router_dom_1.Route, { exact: true, path: "/library", component: LibraryContainer_1["default"] }))));
     };
     return App;
 }(React.Component));

@@ -19,10 +19,7 @@ exports.storeUser = function (info) { return ({
     type: "STORE_USER",
     info: info
 }); };
-exports.addToLibrary = function (book) { return ({
+exports.addToLibrary = function (info) { return ({
     type: "ADD_BOOK",
-    book: book
+    info: info
 }); };
-// export const login = (user: User) => {
-//   console.log(user);
-// };
