@@ -21,44 +21,10 @@ export interface Store {
   library: Array<BookObject>;
 }
 
-export interface LoginProps {
-  user: User;
-  fetchUserFromDB: Function;
-}
-
-export interface LoginState {
-  username: string;
-  password: string;
-}
-
 export interface User {
   username: string;
   email: string;
   password: string;
-}
-
-export interface RegistrationState {
-  username: string;
-  email: string;
-  password: string;
-}
-
-export interface RegistrationProps {
-  register: Function;
-  user: Info;
-}
-
-export interface SearchProps {
-  searchResults: Array<BookObject>;
-  getBookData: Function;
-}
-
-export interface SearchState {
-  searchText: string;
-}
-
-export interface SearchResultsProps {
-  searchResults: Array<BookObject>;
 }
 
 export interface BookObject {
@@ -91,13 +57,4 @@ export interface State {
 
 export interface FetchedData {
   whatever: object;
-}
-
-export interface LibraryProps {
-  library: Array<BookObject>;
-}
-
-export interface BookCardProps {
-  addToLibrary: Function;
-  book: BookObject;
 }

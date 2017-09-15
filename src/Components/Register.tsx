@@ -1,11 +1,34 @@
 import * as React from "react";
 import "../Styles/Register.css";
-import { createUserInDB } from "../utils/usersAPI";
-import {
-  Info,
-  RegistrationProps,
-  RegistrationState
-} from "../utils/interfaces";
+import { Info } from "../utils/interfaces";
+
+interface User {
+  name: string;
+  password: string;
+  email: string;
+  id: number;
+  created_at: string;
+  updated_at: string;
+}
+
+interface RegistrationProps {
+  createUserInDB: Function;
+  currentUser: User;
+}
+
+interface RegistrationState {
+  username: string;
+  email: string;
+  password: string;
+}
+
+interface EventTarget {
+  value: string;
+}
+
+interface Event {
+  target: EventTarget;
+}
 
 export default class Register extends React.Component<
   RegistrationProps,
@@ -46,16 +69,12 @@ export default class Register extends React.Component<
         />
         <button
           className="register-button"
-          onClick={(e: Event) => {
-            this.props.register({
-              username: this.state.username,
-              email: this.state.email,
-              password: this.state.password
-            });
-            createUserInDB(
+          onClick={() => {
+            console.log("register");
+            this.props.createUserInDB(
               this.state.username,
-              this.state.password,
-              this.state.email
+              this.state.email,
+              this.state.password
             );
           }}
         >

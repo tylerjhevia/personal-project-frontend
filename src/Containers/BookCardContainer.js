@@ -5,9 +5,9 @@ var index_1 = require("../actions/index");
 var redux_1 = require("redux");
 var BookCard_1 = require("../Components/BookCard");
 var mapStateToProps = function (state) {
-    return {};
+    return { user: state.user };
 };
 var mapDispatchToProps = function (dispatch) {
-    return redux_1.bindActionCreators({ addToLibrary: index_1.addToLibrary }, dispatch);
+    return redux_1.bindActionCreators({ addToLibrary: index_1.addToLibrary, fetchUserLibrary: index_1.fetchUserLibrary }, dispatch);
 };
 exports["default"] = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(BookCard_1["default"]);

@@ -1,9 +1,27 @@
 import * as React from "react";
 import "../Styles/Login.css";
-import { LoginProps, LoginState, User } from "../utils/interfaces";
 import Register from "../Containers/RegisterContainer";
+import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
-import { fetchUserFromDB } from "../utils/usersAPI";
+
+interface User {
+  name: string;
+  password: string;
+  email: string;
+  id: number;
+  created_at: string;
+  updated_at: string;
+}
+
+interface LoginProps {
+  currentUser: User;
+  fetchUserFromDB: Function;
+}
+
+interface LoginState {
+  username: string;
+  password: string;
+}
 
 export default class Login extends React.Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {
@@ -12,9 +30,9 @@ export default class Login extends React.Component<LoginProps, LoginState> {
   }
 
   private componentDidMount() {
-    fetch("http://localhost:3000/api/v1/users")
-      .then(data => data.json())
-      .then(data => console.log(data));
+    if (this.state.currentUser !== null) {
+      <Redirect to '/search' />
+    }
   }
 
   private handleChange(value: string, field: "username" | "password"): void {

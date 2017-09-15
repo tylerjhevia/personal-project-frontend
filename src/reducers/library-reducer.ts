@@ -3,6 +3,8 @@ import { Action, StoreBookAction } from "../utils/interfaces";
 
 const library = (state: Array<Object> = [], action: Action) => {
   switch (action.type) {
+    case "GET_LIBRARY":
+      return action.info;
     case "ADD_BOOK":
       return [...state, action.info];
     default:

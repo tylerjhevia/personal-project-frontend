@@ -25,13 +25,13 @@ var App = /** @class */ (function (_super) {
     App.prototype.render = function () {
         return (React.createElement("div", { className: "app-div" },
             React.createElement("header", { className: "main-header" },
-                React.createElement(react_router_dom_1.NavLink, { to: "/", className: "link home-link" }, "Search"),
-                React.createElement(react_router_dom_1.NavLink, { to: "/login", className: "link login-link" }, "Login"),
+                React.createElement(react_router_dom_1.NavLink, { to: "/", className: "link home-link" }, "Home"),
                 React.createElement(react_router_dom_1.NavLink, { to: "/register", className: "link register-link" }, "Register"),
-                React.createElement(react_router_dom_1.NavLink, { to: "/library", className: "link library-link" }, "Library")),
+                React.createElement(react_router_dom_1.NavLink, { to: "/library", className: "link library-link" }, "Library"),
+                React.createElement(react_router_dom_1.NavLink, { to: "/search", className: "link search-link" }, "Search")),
             React.createElement("div", { className: "current-view" },
-                React.createElement(react_router_dom_1.Route, { exact: true, path: "/", component: SearchContainer_1["default"] }),
-                React.createElement(react_router_dom_1.Route, { exact: true, path: "/login", component: LoginContainer_1["default"] }),
+                React.createElement(react_router_dom_1.Route, { exact: true, path: "/", component: LoginContainer_1["default"] }),
+                React.createElement(react_router_dom_1.Route, { exact: true, path: "/search", component: SearchContainer_1["default"] }),
                 React.createElement(react_router_dom_1.Route, { exact: true, path: "/register", component: RegisterContainer_1["default"] }),
                 React.createElement(react_router_dom_1.Route, { exact: true, path: "/library", component: LibraryContainer_1["default"] }))));
     };
