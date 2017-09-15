@@ -6,18 +6,15 @@ import Register from "../Containers/RegisterContainer";
 import Library from "../Containers/LibraryContainer";
 import { Route, NavLink, Link } from "react-router-dom";
 
-interface Props {}
+interface AppProps {}
 
-export default class App extends React.Component<Props, {}> {
+export default class App extends React.Component<AppProps, {}> {
   public render(): React.ReactElement<{}> {
     return (
       <div className="app-div">
         <header className="main-header">
           <NavLink to="/" className="link home-link">
-            Search
-          </NavLink>
-          <NavLink to="/login" className="link login-link">
-            Login
+            Home
           </NavLink>
           <NavLink to="/register" className="link register-link">
             Register
@@ -25,10 +22,13 @@ export default class App extends React.Component<Props, {}> {
           <NavLink to="/library" className="link library-link">
             Library
           </NavLink>
+          <NavLink to="/search" className="link search-link">
+            Search
+          </NavLink>
         </header>
         <div className="current-view">
-          <Route exact path="/" component={Search} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/" component={Login} />
+          <Route exact path="/search" component={Search} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/library" component={Library} />
         </div>

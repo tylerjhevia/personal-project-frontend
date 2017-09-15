@@ -1,21 +1,28 @@
 "use strict";
+// export const addFavoriteBook = (
+//   title: string,
+//   author: string,
+//   google_id: string,
+//   user_id: number
+// ) => {
+//   fetch("http://localhost:3000/api/v1/favorites/new", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({ title, author, google_id, user_id })
+//   })
+//     .then(res => res.json())
+//     .then(res => alert("hey"))
+//     .catch(error => error.message);
+// };
 exports.__esModule = true;
-exports.fetchUserFromDB = function (username, password) {
-    return fetch("http://localhost:3000/api/v1/users", {
+exports.addFavoriteBook = function (id, volumeInfo, user_id) {
+    console.log("fetching favorites");
+    fetch("http://localhost:3000/api/v1/favorites/new", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: username, password: password })
+        body: JSON.stringify({ id: id, volumeInfo: volumeInfo, user_id: user_id }),
+        headers: { "Content-Type": "application/json" }
     })
-        .then(function (results) { return results.json(); })
-        .then(function (response) { return console.log("found user", response); })["catch"](function (error) { return error.message; });
+        .then(function (res) { return res.json(); })
+        .then(function (res) { return console.log(" user id", user_id); });
 };
-exports.createUserInDB = function (username, password, email) {
-    return fetch("http://localhost:3000/api/v1/users/new", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: username, password: password, email: email })
-    })
-        .then(function (results) { return results.json(); })
-        .then(function (response) { return console.log("created user", response); })["catch"](function (error) { return error.message; });
-};
-module.exports = { fetchUserFromDB: exports.fetchUserFromDB, createUserInDB: exports.createUserInDB };
+module.exports = { addFavoriteBook: exports.addFavoriteBook };

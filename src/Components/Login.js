@@ -28,11 +28,7 @@ var Login = /** @class */ (function (_super) {
         _this.state = { username: "", password: "" };
         return _this;
     }
-    Login.prototype.componentDidMount = function () {
-        fetch("http://localhost:3000/api/v1/users")
-            .then(function (data) { return data.json(); })
-            .then(function (data) { return console.log(data); });
-    };
+    Login.prototype.componentDidMount = function () { };
     Login.prototype.handleChange = function (value, field) {
         this.setState(__assign({}, this.state, (_a = {}, _a[field] = value, _a)));
         var _a;

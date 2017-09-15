@@ -2,13 +2,14 @@
 exports.__esModule = true;
 var React = require("react");
 require("../Styles/BookCard.css");
+var usersAPI_1 = require("../utils/usersAPI");
 var BookCard = function (props) {
-    console.log("book card props", props);
     var volumeInfo = props.book.volumeInfo;
-    return (React.createElement("div", { className: "book-card", onClick: function (e) {
-            e.preventDefault();
-            console.log("book props", props.book);
-            props.addToLibrary(props.book);
+    return (React.createElement("div", { className: "book-card", onClick: function () {
+            if (props.user.id === 0) {
+                usersAPI_1.addFavoriteBook(props.book.id, volumeInfo, props.user.id);
+                props.fetchUserLibrary(props.user.id);
+            }
         } },
         React.createElement("img", { className: "book-image", src: volumeInfo.imageLinks
                 ? volumeInfo.imageLinks.smallThumbnail

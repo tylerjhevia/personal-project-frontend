@@ -1,4 +1,3 @@
-import { Dispatch } from "redux";
 import {
   Action,
   Info,
@@ -14,10 +13,10 @@ export const storeBook = (info: any) => ({
 });
 
 export const getBookData = (url: string): any => {
-  return Dispatch => {
+  return dispatch => {
     fetch(url)
       .then(data => data.json())
-      .then(data => Dispatch(storeBook(data)));
+      .then(data => dispatch(storeBook(data)));
   };
 };
 
@@ -31,28 +30,45 @@ export const addToLibrary = (info: object) => ({
   info
 });
 
+export const storeUserLibrary = (info: object) => ({
+  type: "GET_LIBRARY",
+  info
+});
+
 export const fetchUserFromDB = (username, password) => {
-  return Dispatch => {
+  return dispatch => {
     fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password })
     })
       .then(res => res.json())
-      .then(res => Dispatch(storeUser(res)))
+      .then(res => dispatch(storeUser(res[0])))
       .catch(error => error.message);
   };
 };
 
 export const createUserInDB = (username, email, password) => {
-  return Dispatch => {
+  return dispatch => {
     fetch("http://localhost:3000/api/v1/users/new", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password, email })
     })
       .then(res => res.json())
-      .then(res => Dispatch(fetchUserFromDB(username, password)))
+      .then(res => dispatch(fetchUserFromDB(username, password)))
       .catch(error => error.message);
+  };
+};
+
+export const fetchUserLibrary = (user_id: number) => {
+  return dispatch => {
+    fetch("http://localhost:3000/api/v1/favorites", {
+      method: "POST",
+      body: JSON.stringify({ user_id: user_id }),
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(res => res.json())
+      .then(res => dispatch(storeUserLibrary(res)));
   };
 };

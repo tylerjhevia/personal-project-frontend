@@ -28,11 +28,15 @@ var Search = /** @class */ (function (_super) {
         _this.state = { searchText: "" };
         return _this;
     }
+    Search.prototype.componentDidMount = function () {
+        this.props.fetchUserLibrary(this.props.user.id);
+    };
     Search.prototype.handleInput = function (input) {
         this.setState(__assign({}, this.state, { searchText: input }));
     };
     Search.prototype.render = function () {
         var _this = this;
+        console.log("search", this.props);
         return (React.createElement("div", { className: "search-div" },
             React.createElement("input", { className: "search-input", placeholder: "Search for a book", onChange: function (e) { return _this.handleInput(e.target.value); } }),
             React.createElement("button", { className: "search-button", onClick: function () {

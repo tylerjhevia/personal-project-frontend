@@ -5,9 +5,9 @@ var index_1 = require("../actions/index");
 var Search_1 = require("../Components/Search");
 var redux_1 = require("redux");
 var mapStateToProps = function (state) {
-    return { searchResults: state.searchResults };
+    return { searchResults: state.searchResults, user: state.user };
 };
 var mapDispatchToProps = function (dispatch) {
-    return redux_1.bindActionCreators({ getBookData: index_1.getBookData }, dispatch);
+    return redux_1.bindActionCreators({ getBookData: index_1.getBookData, fetchUserLibrary: index_1.fetchUserLibrary }, dispatch);
 };
 exports["default"] = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Search_1["default"]);

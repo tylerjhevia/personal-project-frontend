@@ -1,10 +1,34 @@
 import * as React from "react";
 import "../Styles/Register.css";
-import {
-  Info,
-  RegistrationProps,
-  RegistrationState
-} from "../utils/interfaces";
+import { Info } from "../utils/interfaces";
+
+interface User {
+  name: string;
+  password: string;
+  email: string;
+  id: number;
+  created_at: string;
+  updated_at: string;
+}
+
+interface RegistrationProps {
+  createUserInDB: Function;
+  currentUser: User;
+}
+
+interface RegistrationState {
+  username: string;
+  email: string;
+  password: string;
+}
+
+interface EventTarget {
+  value: string;
+}
+
+interface Event {
+  target: EventTarget;
+}
 
 export default class Register extends React.Component<
   RegistrationProps,

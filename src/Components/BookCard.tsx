@@ -1,18 +1,47 @@
 import * as React from "react";
 import "../Styles/BookCard.css";
-import { BookCardProps, BookObject } from "../utils/interfaces";
+import { addFavoriteBook } from "../utils/usersAPI";
+
+interface BookCardProps {
+  addToLibrary: Function;
+  book: BookObject;
+  user: object;
+}
+
+interface BookObject {
+  kind: string;
+  id: string;
+  etag: string;
+  selfLink: string;
+  volumeInfo: VolumeInfo;
+  saleInfo: object;
+  accessInfo: object;
+  searchInfo: object;
+}
+
+interface VolumeInfo {
+  imageLinks: ImageLinks;
+  authors: Array<string>;
+  title: string;
+  description: string;
+}
+
+interface ImageLinks {
+  smallThumbnail: string;
+  thumbnail: string;
+}
 
 const BookCard = (props: BookCardProps) => {
-  console.log("book card props", props);
   const { volumeInfo } = props.book;
 
   return (
     <div
       className="book-card"
-      onClick={(e: Event) => {
-        e.preventDefault();
-        console.log("book props", props.book);
-        props.addToLibrary(props.book);
+      onClick={() => {
+        if (props.user.id === 0) {
+          addFavoriteBook(props.book.id, volumeInfo, props.user.id);
+          props.fetchUserLibrary(props.user.id);
+        }
       }}
     >
       <img

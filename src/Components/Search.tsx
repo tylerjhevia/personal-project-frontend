@@ -1,7 +1,25 @@
 import * as React from "react";
 import SearchResults from "../Containers/SearchResultsContainer";
-import { SearchProps, SearchState } from "../utils/interfaces";
 import "../Styles/Search.css";
+
+interface User {
+  name: string;
+  password: string;
+  email: string;
+  id: number;
+  created_at: string;
+  updated_at: string;
+}
+
+interface SearchProps {
+  fetchUserLibrary: Function;
+  getBookData: Function;
+  user: User;
+}
+
+interface SearchState {
+  searchText: string;
+}
 
 export default class Search extends React.Component<SearchProps, SearchState> {
   constructor(props: SearchProps) {
@@ -9,11 +27,16 @@ export default class Search extends React.Component<SearchProps, SearchState> {
     this.state = { searchText: "" };
   }
 
+  private componentDidMount() {
+    this.props.fetchUserLibrary(this.props.user.id);
+  }
+
   private handleInput(input: string) {
     this.setState({ ...this.state, searchText: input });
   }
 
   public render() {
+    console.log("search", this.props);
     return (
       <div className="search-div">
         <input

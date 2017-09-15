@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { register, fetchUserFromDB } from "../actions/index";
+import { fetchUserFromDB } from "../actions/index";
 import Login from "../Components/Login";
 import { bindActionCreators } from "redux";
 import { Store } from "../utils/interfaces";
