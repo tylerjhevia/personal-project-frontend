@@ -32,8 +32,8 @@ export interface ImageLinks {
 }
 
 const Library = (props: LibraryProps) => {
-  if (props.user[0]) {
-    props.fetchUserLibrary(props.user[0].id);
+  if (props.user) {
+    props.fetchUserLibrary(props.user.id);
   }
   let mappedLibraryBooks;
   props.library !== []
@@ -41,7 +41,7 @@ const Library = (props: LibraryProps) => {
     : (mappedLibraryBooks = "uh-oh");
   return (
     <div className="library-div">
-      {mappedLibraryBooks}
+      {props.library !== [] ? mappedLibraryBooks : "Your library is empty"}
     </div>
   );
 };

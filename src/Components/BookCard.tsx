@@ -38,8 +38,9 @@ const BookCard = (props: BookCardProps) => {
     <div
       className="book-card"
       onClick={() => {
-        if (props.user.id === 0) {
+        if (props.user.id) {
           addFavoriteBook(props.book.id, volumeInfo, props.user.id);
+          props.fetchUserLibrary(props.user.id);
         }
       }}
     >
