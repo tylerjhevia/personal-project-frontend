@@ -6,8 +6,9 @@ var usersAPI_1 = require("../utils/usersAPI");
 var BookCard = function (props) {
     var volumeInfo = props.book.volumeInfo;
     return (React.createElement("div", { className: "book-card", onClick: function () {
-            if (props.user.id === 0) {
+            if (props.user.id) {
                 usersAPI_1.addFavoriteBook(props.book.id, volumeInfo, props.user.id);
+                props.fetchUserLibrary(props.user.id);
             }
         } },
         React.createElement("img", { className: "book-image", src: volumeInfo.imageLinks
