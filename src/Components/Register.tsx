@@ -1,6 +1,7 @@
 import * as React from "react";
 import "../Styles/Register.css";
 import { Info } from "../utils/interfaces";
+import { Redirect } from "react-router";
 
 interface User {
   name: string;
@@ -50,6 +51,10 @@ export default class Register extends React.Component<
   }
 
   public render() {
+    if (this.props.currentUser.username) {
+      console.log("user signed in");
+      return <Redirect to="/search" />;
+    }
     return (
       <div className="register-div">
         <input

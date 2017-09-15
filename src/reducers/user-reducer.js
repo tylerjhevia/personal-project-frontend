@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var initialState = {
-    name: null,
+    username: null,
     email: null,
     password: null,
     id: null,
@@ -9,11 +9,12 @@ var initialState = {
 };
 var user = function (state, action) {
     if (state === void 0) { state = initialState; }
+    console.log("fire user reducer");
     switch (action.type) {
         case "STORE_USER":
             return action.info;
         default:
-            return initialState;
+            return state;
     }
 };
 exports["default"] = user;

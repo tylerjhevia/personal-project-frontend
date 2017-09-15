@@ -28,7 +28,7 @@ export default class Search extends React.Component<SearchProps, SearchState> {
   }
 
   private componentDidMount() {
-    this.props.fetchUserLibrary(this.props.user.id);
+    // this.props.fetchUserLibrary(this.props.user.id);
   }
 
   private handleInput(input: string) {
@@ -39,6 +39,11 @@ export default class Search extends React.Component<SearchProps, SearchState> {
     console.log("search", this.props);
     return (
       <div className="search-div">
+        <p className="logged-in-status">
+          {this.props.user.username
+            ? `Logged in as ${this.props.user.username}`
+            : "Please log in"}
+        </p>
         <input
           className="search-input"
           placeholder="Search for a book"
@@ -54,7 +59,7 @@ export default class Search extends React.Component<SearchProps, SearchState> {
         >
           Search
         </button>
-        {this.props.searchResults === "books"
+        {this.props.searchResults === []
           ? <p>NO RESULTS</p>
           : <SearchResults />}
       </div>

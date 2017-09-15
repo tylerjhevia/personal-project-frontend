@@ -3,8 +3,7 @@ import {
   Info,
   User,
   FetchedData,
-  BookObject,
-  LoginState
+  BookObject
 } from "../utils/interfaces";
 
 export const storeBook = (info: any) => ({
@@ -62,6 +61,7 @@ export const createUserInDB = (username, email, password) => {
 };
 
 export const fetchUserLibrary = (user_id: number) => {
+  console.log("fetching library");
   return dispatch => {
     fetch("http://localhost:3000/api/v1/favorites", {
       method: "POST",

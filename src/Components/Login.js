@@ -20,6 +20,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 exports.__esModule = true;
 var React = require("react");
 require("../Styles/Login.css");
+var react_router_1 = require("react-router");
 var react_router_dom_1 = require("react-router-dom");
 var Login = /** @class */ (function (_super) {
     __extends(Login, _super);
@@ -35,11 +36,19 @@ var Login = /** @class */ (function (_super) {
     };
     Login.prototype.render = function () {
         var _this = this;
+        if (this.props.currentUser.username) {
+            console.log("user signed in");
+            return React.createElement(react_router_1.Redirect, { to: "/search" });
+        }
         return (React.createElement("div", { className: "login-div" },
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "username"); }, placeholder: "username", className: "username-input" }),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "password"); }, placeholder: "password", className: "password-input" }),
             React.createElement("button", { className: "login-button", onClick: function () {
+                    console.log("clicking login");
                     _this.props.fetchUserFromDB(_this.state.username, _this.state.password);
+                    if (_this.props.currentUser.username) {
+                        return React.createElement(react_router_1.Redirect, { to: "/search" });
+                    }
                 } }, "Submit"),
             React.createElement(react_router_dom_1.NavLink, { to: "/register", className: "link register-link" },
                 "Don't have an account? ",

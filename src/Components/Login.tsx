@@ -29,11 +29,7 @@ export default class Login extends React.Component<LoginProps, LoginState> {
     this.state = { username: "", password: "" };
   }
 
-  private componentDidMount() {
-    if (this.state.currentUser !== null) {
-      <Redirect to '/search' />
-    }
-  }
+  private componentDidMount() {}
 
   private handleChange(value: string, field: "username" | "password"): void {
     this.setState({
@@ -43,6 +39,10 @@ export default class Login extends React.Component<LoginProps, LoginState> {
   }
 
   public render() {
+    if (this.props.currentUser.username) {
+      console.log("user signed in");
+      return <Redirect to="/search" />;
+    }
     return (
       <div className="login-div">
         <input
@@ -59,10 +59,14 @@ export default class Login extends React.Component<LoginProps, LoginState> {
         <button
           className="login-button"
           onClick={() => {
+            console.log("clicking login");
             this.props.fetchUserFromDB(
               this.state.username,
               this.state.password
             );
+            if (this.props.currentUser.username) {
+              return <Redirect to="/search" />;
+            }
           }}
         >
           Submit
