@@ -40,7 +40,6 @@ const BookCard = (props: BookCardProps) => {
       onClick={() => {
         if (props.user.id === 0) {
           addFavoriteBook(props.book.id, volumeInfo, props.user.id);
-          props.fetchUserLibrary(props.user.id);
         }
       }}
     >

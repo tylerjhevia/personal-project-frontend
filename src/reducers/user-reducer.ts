@@ -11,7 +11,7 @@ interface State {
 }
 
 const initialState = {
-  name: null,
+  username: null,
   email: null,
   password: null,
   id: null,
@@ -19,11 +19,12 @@ const initialState = {
 };
 
 const user = (state: object = initialState, action: Action) => {
+  console.log("fire user reducer");
   switch (action.type) {
     case "STORE_USER":
       return action.info;
     default:
-      return initialState;
+      return state;
   }
 };
 

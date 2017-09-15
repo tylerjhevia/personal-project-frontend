@@ -29,7 +29,7 @@ var Search = /** @class */ (function (_super) {
         return _this;
     }
     Search.prototype.componentDidMount = function () {
-        this.props.fetchUserLibrary(this.props.user.id);
+        // this.props.fetchUserLibrary(this.props.user.id);
     };
     Search.prototype.handleInput = function (input) {
         this.setState(__assign({}, this.state, { searchText: input }));
@@ -38,12 +38,15 @@ var Search = /** @class */ (function (_super) {
         var _this = this;
         console.log("search", this.props);
         return (React.createElement("div", { className: "search-div" },
+            React.createElement("p", { className: "logged-in-status" }, this.props.user.username
+                ? "Logged in as " + this.props.user.username
+                : "Please log in"),
             React.createElement("input", { className: "search-input", placeholder: "Search for a book", onChange: function (e) { return _this.handleInput(e.target.value); } }),
             React.createElement("button", { className: "search-button", onClick: function () {
                     return _this.props.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + (_this.state
                         .searchText || "a"));
                 } }, "Search"),
-            this.props.searchResults === "books"
+            this.props.searchResults === []
                 ? React.createElement("p", null, "NO RESULTS")
                 : React.createElement(SearchResultsContainer_1["default"], null)));
     };

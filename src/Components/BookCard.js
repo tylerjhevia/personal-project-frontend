@@ -8,7 +8,6 @@ var BookCard = function (props) {
     return (React.createElement("div", { className: "book-card", onClick: function () {
             if (props.user.id === 0) {
                 usersAPI_1.addFavoriteBook(props.book.id, volumeInfo, props.user.id);
-                props.fetchUserLibrary(props.user.id);
             }
         } },
         React.createElement("img", { className: "book-image", src: volumeInfo.imageLinks
