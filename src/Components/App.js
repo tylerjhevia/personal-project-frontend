@@ -24,7 +24,6 @@ var App = /** @class */ (function (_super) {
     }
     App.prototype.componentDidMount = function () {
         if (this.props.user.username) {
-            console.log("fetching favorites in app");
             this.props.fetchUserLibrary(this.props.user.id);
         }
     };

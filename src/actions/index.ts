@@ -24,10 +24,10 @@ export const storeUser = (info: object) => ({
   info
 });
 
-export const addToLibrary = (info: object) => ({
-  type: "ADD_BOOK",
-  info
-});
+// export const addToLibrary = (info: object) => ({    //not using this??
+//   type: "ADD_BOOK",
+//   info
+// });
 
 export const storeUserLibrary = (info: object) => ({
   type: "GET_LIBRARY",

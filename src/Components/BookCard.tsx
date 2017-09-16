@@ -46,6 +46,7 @@ const BookCard = (props: BookCardProps) => {
         }
       }}
     >
+      <button className="add-button">Add to library</button>
       <img
         className="book-image"
         src={

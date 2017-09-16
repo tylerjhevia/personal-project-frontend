@@ -12,6 +12,7 @@ var BookCard = function (props) {
                 props.fetchUserLibrary(props.user.id);
             }
         } },
+        React.createElement("button", { className: "add-button" }, "Add to library"),
         React.createElement("img", { className: "book-image", src: volumeInfo.imageLinks
                 ? volumeInfo.imageLinks.smallThumbnail
                 : "https://pbs.twimg.com/profile_images/565602752152076288/NxWEBoTo.jpeg" }),

@@ -30,7 +30,6 @@ var Search = /** @class */ (function (_super) {
     }
     Search.prototype.componentDidMount = function () {
         if (this.props.user.username) {
-            console.log("fetching library in search");
             this.props.fetchUserLibrary(this.props.user.id);
         }
     };
