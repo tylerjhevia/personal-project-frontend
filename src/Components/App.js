@@ -22,6 +22,12 @@ var App = /** @class */ (function (_super) {
     function App() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    App.prototype.componentDidMount = function () {
+        if (this.props.user.username) {
+            console.log("fetching favorites in app");
+            this.props.fetchUserLibrary(this.props.user.id);
+        }
+    };
     App.prototype.render = function () {
         return (React.createElement("div", { className: "app-div" },
             React.createElement("header", { className: "main-header" },

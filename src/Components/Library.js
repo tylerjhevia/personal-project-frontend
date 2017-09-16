@@ -5,7 +5,7 @@ var BookCardContainer_1 = require("../Containers/BookCardContainer");
 require("../Styles/Library.css");
 var Library = function (props) {
     if (props.user) {
-        props.fetchUserLibrary(props.user.id);
+        // props.fetchUserLibrary(props.user.id);
     }
     var mappedLibraryBooks;
     props.library !== []
