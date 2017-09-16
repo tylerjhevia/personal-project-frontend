@@ -1,19 +1,4 @@
 "use strict";
-// export const addFavoriteBook = (
-//   title: string,
-//   author: string,
-//   google_id: string,
-//   user_id: number
-// ) => {
-//   fetch("http://localhost:3000/api/v1/favorites/new", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({ title, author, google_id, user_id })
-//   })
-//     .then(res => res.json())
-//     .then(res => alert("hey"))
-//     .catch(error => error.message);
-// };
 exports.__esModule = true;
 exports.addFavoriteBook = function (id, volumeInfo, user_id) {
     fetch("http://localhost:3000/api/v1/favorites/new", {

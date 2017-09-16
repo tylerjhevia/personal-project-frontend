@@ -5,8 +5,20 @@ import Search from "../Containers/SearchContainer";
 import Register from "../Containers/RegisterContainer";
 import Library from "../Containers/LibraryContainer";
 import { Route, NavLink, Link } from "react-router-dom";
+import { User } from "../utils/interfaces";
 
-export default class App extends React.Component<{}, {}> {
+interface AppProps {
+  user: User;
+  fetchUserLibrary: Function;
+}
+
+export default class App extends React.Component<AppProps, {}> {
+  public componentDidMount() {
+    if (this.props.user.username) {
+      this.props.fetchUserLibrary(this.props.user.id);
+    }
+  }
+
   public render(): React.ReactElement<{}> {
     return (
       <div className="app-div">

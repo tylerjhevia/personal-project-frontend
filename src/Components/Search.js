@@ -29,7 +29,10 @@ var Search = /** @class */ (function (_super) {
         return _this;
     }
     Search.prototype.componentDidMount = function () {
-        // this.props.fetchUserLibrary(this.props.user.id);
+        if (this.props.user.username) {
+            console.log("fetching library in search");
+            this.props.fetchUserLibrary(this.props.user.id);
+        }
     };
     Search.prototype.handleInput = function (input) {
         this.setState(__assign({}, this.state, { searchText: input }));

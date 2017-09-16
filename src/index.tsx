@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { Route, NavLink, Link, BrowserRouter } from "react-router-dom";
 import rootReducer from "./reducers/index.js";
-import App from "./Components/App";
+import App from "./Containers/AppContainer";
 
 let initialState = {};
 const devtools: any = window["devToolsExtension"]

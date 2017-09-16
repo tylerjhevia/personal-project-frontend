@@ -1,15 +1,7 @@
 import * as React from "react";
 import SearchResults from "../Containers/SearchResultsContainer";
 import "../Styles/Search.css";
-
-interface User {
-  name: string;
-  password: string;
-  email: string;
-  id: number;
-  created_at: string;
-  updated_at: string;
-}
+import { User } from "../utils/interfaces";
 
 interface SearchProps {
   fetchUserLibrary: Function;
@@ -28,7 +20,9 @@ export default class Search extends React.Component<SearchProps, SearchState> {
   }
 
   private componentDidMount() {
-    // this.props.fetchUserLibrary(this.props.user.id);
+    if (this.props.user.username) {
+      this.props.fetchUserLibrary(this.props.user.id);
+    }
   }
 
   private handleInput(input: string) {

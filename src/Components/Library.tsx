@@ -33,7 +33,6 @@ export interface ImageLinks {
 
 const Library = (props: LibraryProps) => {
   if (props.user) {
-    props.fetchUserLibrary(props.user.id);
   }
   let mappedLibraryBooks;
   props.library !== []
