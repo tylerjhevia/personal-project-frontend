@@ -40,7 +40,6 @@ export default class Login extends React.Component<LoginProps, LoginState> {
 
   public render() {
     if (this.props.currentUser.username) {
-      console.log("user signed in");
       return <Redirect to="/search" />;
     }
     return (
@@ -59,7 +58,6 @@ export default class Login extends React.Component<LoginProps, LoginState> {
         <button
           className="login-button"
           onClick={() => {
-            console.log("clicking login");
             this.props.fetchUserFromDB(
               this.state.username,
               this.state.password

@@ -36,7 +36,6 @@ var Search = /** @class */ (function (_super) {
     };
     Search.prototype.render = function () {
         var _this = this;
-        console.log("search", this.props);
         return (React.createElement("div", { className: "search-div" },
             React.createElement("p", { className: "logged-in-status" }, this.props.user.username
                 ? "Logged in as " + this.props.user.username

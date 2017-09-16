@@ -5,6 +5,7 @@ require("../Styles/BookCard.css");
 var usersAPI_1 = require("../utils/usersAPI");
 var BookCard = function (props) {
     var volumeInfo = props.book.volumeInfo;
+    console.log("book props", props);
     return (React.createElement("div", { className: "book-card", onClick: function () {
             if (props.user.id) {
                 usersAPI_1.addFavoriteBook(props.book.id, volumeInfo, props.user.id);

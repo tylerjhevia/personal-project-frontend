@@ -52,7 +52,6 @@ export default class Register extends React.Component<
 
   public render() {
     if (this.props.currentUser.username) {
-      console.log("user signed in");
       return <Redirect to="/search" />;
     }
     return (
@@ -75,7 +74,6 @@ export default class Register extends React.Component<
         <button
           className="register-button"
           onClick={() => {
-            console.log("register");
             this.props.createUserInDB(
               this.state.username,
               this.state.email,

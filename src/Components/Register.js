@@ -35,7 +35,6 @@ var Register = /** @class */ (function (_super) {
     Register.prototype.render = function () {
         var _this = this;
         if (this.props.currentUser.username) {
-            console.log("user signed in");
             return React.createElement(react_router_1.Redirect, { to: "/search" });
         }
         return (React.createElement("div", { className: "register-div" },
@@ -43,7 +42,6 @@ var Register = /** @class */ (function (_super) {
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "email"); }, placeholder: "email", className: "email-input" }),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "password"); }, placeholder: "password", className: "password-input" }),
             React.createElement("button", { className: "register-button", onClick: function () {
-                    console.log("register");
                     _this.props.createUserInDB(_this.state.username, _this.state.email, _this.state.password);
                 } }, "Create Account")));
     };

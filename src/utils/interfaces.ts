@@ -25,6 +25,8 @@ export interface User {
   username: string;
   email: string;
   password: string;
+  id: number;
+  created_at: string;
 }
 
 export interface BookObject {

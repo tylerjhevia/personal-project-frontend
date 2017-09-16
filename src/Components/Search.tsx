@@ -36,7 +36,6 @@ export default class Search extends React.Component<SearchProps, SearchState> {
   }
 
   public render() {
-    console.log("search", this.props);
     return (
       <div className="search-div">
         <p className="logged-in-status">
