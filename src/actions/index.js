@@ -15,10 +15,10 @@ exports.storeUser = function (info) { return ({
     type: "STORE_USER",
     info: info
 }); };
-exports.addToLibrary = function (info) { return ({
-    type: "ADD_BOOK",
-    info: info
-}); };
+// export const addToLibrary = (info: object) => ({    //not using this
+//   type: "ADD_BOOK",
+//   info
+// });
 exports.storeUserLibrary = function (info) { return ({
     type: "GET_LIBRARY",
     info: info

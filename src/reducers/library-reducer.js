@@ -2,6 +2,7 @@
 exports.__esModule = true;
 var library = function (state, action) {
     if (state === void 0) { state = []; }
+    console.log("library action", action);
     switch (action.type) {
         case "GET_LIBRARY":
             return action.info;
