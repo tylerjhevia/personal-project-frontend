@@ -6,9 +6,7 @@ import Register from "../Containers/RegisterContainer";
 import Library from "../Containers/LibraryContainer";
 import { Route, NavLink, Link } from "react-router-dom";
 
-interface AppProps {}
-
-export default class App extends React.Component<AppProps, {}> {
+export default class App extends React.Component<{}, {}> {
   public render(): React.ReactElement<{}> {
     return (
       <div className="app-div">

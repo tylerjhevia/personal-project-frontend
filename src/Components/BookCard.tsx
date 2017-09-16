@@ -1,11 +1,13 @@
 import * as React from "react";
 import "../Styles/BookCard.css";
 import { addFavoriteBook } from "../utils/usersAPI";
+import { User } from "../utils/interfaces";
 
 interface BookCardProps {
   addToLibrary: Function;
   book: BookObject;
-  user: object;
+  user: User;
+  fetchUserLibrary: Function;
 }
 
 interface BookObject {
@@ -33,7 +35,7 @@ interface ImageLinks {
 
 const BookCard = (props: BookCardProps) => {
   const { volumeInfo } = props.book;
-
+  console.log("book props", props);
   return (
     <div
       className="book-card"

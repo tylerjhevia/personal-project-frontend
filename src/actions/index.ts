@@ -12,7 +12,7 @@ export const storeBook = (info: any) => ({
 });
 
 export const getBookData = (url: string): any => {
-  return dispatch => {
+  return (dispatch: Function) => {
     fetch(url)
       .then(data => data.json())
       .then(data => dispatch(storeBook(data)));
@@ -34,21 +34,25 @@ export const storeUserLibrary = (info: object) => ({
   info
 });
 
-export const fetchUserFromDB = (username, password) => {
-  return dispatch => {
+export const fetchUserFromDB = (username: string, password: string) => {
+  return (dispatch: Function) => {
     fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password })
     })
       .then(res => res.json())
-      .then(res => dispatch(storeUser(res[0])))
-      .catch(error => error.message);
+      .then((res: Response) => dispatch(storeUser(res[0])))
+      .catch((error: Response) => console.log(error));
   };
 };
 
-export const createUserInDB = (username, email, password) => {
-  return dispatch => {
+export const createUserInDB = (
+  username: string,
+  email: string,
+  password: string
+) => {
+  return (dispatch: Function) => {
     fetch("http://localhost:3000/api/v1/users/new", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -62,7 +66,7 @@ export const createUserInDB = (username, email, password) => {
 
 export const fetchUserLibrary = (user_id: number) => {
   console.log("fetching library");
-  return dispatch => {
+  return (dispatch: Function) => {
     fetch("http://localhost:3000/api/v1/favorites", {
       method: "POST",
       body: JSON.stringify({ user_id: user_id }),

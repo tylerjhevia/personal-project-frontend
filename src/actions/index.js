@@ -31,7 +31,7 @@ exports.fetchUserFromDB = function (username, password) {
             body: JSON.stringify({ username: username, password: password })
         })
             .then(function (res) { return res.json(); })
-            .then(function (res) { return dispatch(exports.storeUser(res[0])); })["catch"](function (error) { return error.message; });
+            .then(function (res) { return dispatch(exports.storeUser(res[0])); })["catch"](function (error) { return console.log(error); });
     };
 };
 exports.createUserInDB = function (username, email, password) {

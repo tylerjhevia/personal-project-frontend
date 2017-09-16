@@ -9,7 +9,6 @@ var initialState = {
 };
 var user = function (state, action) {
     if (state === void 0) { state = initialState; }
-    console.log("fire user reducer");
     switch (action.type) {
         case "STORE_USER":
             return action.info;

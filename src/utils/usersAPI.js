@@ -16,7 +16,6 @@
 // };
 exports.__esModule = true;
 exports.addFavoriteBook = function (id, volumeInfo, user_id) {
-    console.log("fetching favorites");
     fetch("http://localhost:3000/api/v1/favorites/new", {
         method: "POST",
         body: JSON.stringify({ id: id, volumeInfo: volumeInfo, user_id: user_id }),
