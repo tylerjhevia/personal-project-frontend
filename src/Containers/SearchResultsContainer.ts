@@ -9,7 +9,7 @@ const mapStateToProps = (state: Store) => {
   return { searchResults: state.searchResults };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators({ addToLibrary }, dispatch);
 };
 

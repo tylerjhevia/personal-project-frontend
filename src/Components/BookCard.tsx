@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../Styles/BookCard.css";
 import { addFavoriteBook } from "../utils/usersAPI";
-import { User } from "../utils/interfaces";
+import { User, VolumeInfo, ImageLinks, BookObject } from "../utils/interfaces";
 
 interface BookCardProps {
   deleteFromLibrary: Function;
@@ -12,27 +12,26 @@ interface BookCardProps {
   book_id: string;
 }
 
-interface BookObject {
-  kind: string;
-  id: string;
-  etag: string;
-  selfLink: string;
-  volumeInfo: VolumeInfo;
-  saleInfo: object;
-  accessInfo: object;
-  searchInfo: object;
+interface Event {
+  currentTarget: {
+    classList: {
+      toggle: Function;
+    };
+  };
 }
 
-interface VolumeInfo {
-  imageLinks: ImageLinks;
-  authors: Array<string>;
-  title: string;
-  description: string;
-}
+function handleClick(props: BookCardProps, e: Event, volumeInfo: VolumeInfo) {
+  if (props.inLibrary === true) {
+    props.deleteFromLibrary(props.user.id, props.book_id);
+    e.currentTarget.classList.toggle("hidden");
+    props.fetchUserLibrary(props.user.id);
+  } else {
+    addFavoriteBook(props.book_id, volumeInfo, props.user.id);
+    e.currentTarget.classList.toggle("selected");
+    props.fetchUserLibrary(props.user.id);
+  }
 
-interface ImageLinks {
-  smallThumbnail: string;
-  thumbnail: string;
+  props.fetchUserLibrary(props.user.id);
 }
 
 const BookCard = (props: BookCardProps) => {
@@ -41,18 +40,8 @@ const BookCard = (props: BookCardProps) => {
   return (
     <div
       className="book-card"
-      onClick={e => {
-        if (props.user.username) {
-          if (props.inLibrary === true) {
-            props.deleteFromLibrary(props.user.id, props.book_id);
-            e.currentTarget.classList.toggle("hidden");
-            props.fetchUserLibrary(props.user.id);
-          } else {
-            addFavoriteBook(props.book_id, volumeInfo, props.user.id);
-            props.fetchUserLibrary(props.user.id);
-          }
-          props.fetchUserLibrary(props.user.id);
-        }
+      onClick={(e: Event) => {
+        props.user.username ? handleClick(props, e, volumeInfo) : alert("fart");
       }}
     >
       <img

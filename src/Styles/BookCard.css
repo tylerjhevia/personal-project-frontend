@@ -63,3 +63,7 @@
 .hidden {
   display: none;
 }
+
+.selected {
+  border: 10px solid purple;
+}

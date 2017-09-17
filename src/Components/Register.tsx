@@ -1,16 +1,7 @@
 import * as React from "react";
 import "../Styles/Register.css";
-import { Info } from "../utils/interfaces";
+import { Info, User } from "../utils/interfaces";
 import { Redirect } from "react-router";
-
-interface User {
-  name: string;
-  password: string;
-  email: string;
-  id: number;
-  created_at: string;
-  updated_at: string;
-}
 
 interface RegistrationProps {
   createUserInDB: Function;

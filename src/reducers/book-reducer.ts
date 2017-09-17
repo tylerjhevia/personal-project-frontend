@@ -1,9 +1,10 @@
 import { storeBook } from "../actions/index";
-import { Action, StoreBookAction } from "../utils/interfaces";
+import { Action, StoreBookAction, BookObject } from "../utils/interfaces";
 
-const initialState = [];
-
-const searchResults = (state: any = initialState, action: StoreBookAction) => {
+const searchResults = (
+  state: Array<BookObject> = [],
+  action: StoreBookAction
+) => {
   switch (action.type) {
     case "STORE_BOOK":
       return action.info.items;

@@ -1,13 +1,14 @@
 import * as React from "react";
 import SearchResults from "../Containers/SearchResultsContainer";
 import "../Styles/Search.css";
-import { User } from "../utils/interfaces";
+import { User, BookObject } from "../utils/interfaces";
 import { Redirect } from "react-router";
 
 interface SearchProps {
   fetchUserLibrary: Function;
   getBookData: Function;
   user: User;
+  searchResults: Array<BookObject>;
 }
 
 interface SearchState {
@@ -21,6 +22,7 @@ export default class Search extends React.Component<SearchProps, SearchState> {
   }
 
   public componentDidMount() {
+    console.log("search props", this.props);
     if (this.props.user.username) {
       this.props.fetchUserLibrary(this.props.user.id);
     }
@@ -31,6 +33,9 @@ export default class Search extends React.Component<SearchProps, SearchState> {
   }
 
   public render() {
+    if (!this.props.user.username) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="search-div">
         <p className="logged-in-status">

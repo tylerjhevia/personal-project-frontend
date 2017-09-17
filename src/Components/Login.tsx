@@ -3,15 +3,7 @@ import "../Styles/Login.css";
 import Register from "../Containers/RegisterContainer";
 import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
-
-interface User {
-  name: string;
-  password: string;
-  email: string;
-  id: number;
-  created_at: string;
-  updated_at: string;
-}
+import { User } from "../utils/interfaces";
 
 interface LoginProps {
   currentUser: User;
@@ -21,6 +13,12 @@ interface LoginProps {
 interface LoginState {
   username: string;
   password: string;
+}
+
+interface Event {
+  target: {
+    value: string;
+  };
 }
 
 export default class Login extends React.Component<LoginProps, LoginState> {
@@ -45,13 +43,13 @@ export default class Login extends React.Component<LoginProps, LoginState> {
     return (
       <div className="login-div">
         <input
-          onChange={e => this.handleChange(e.target.value, "username")}
+          onChange={(e: Event) => this.handleChange(e.target.value, "username")}
           placeholder="username"
           className="username-input"
         />
 
         <input
-          onChange={e => this.handleChange(e.target.value, "password")}
+          onChange={(e: Event) => this.handleChange(e.target.value, "password")}
           placeholder="password"
           className="password-input"
         />

@@ -6,7 +6,7 @@ require("../Styles/Library.css");
 var react_router_1 = require("react-router");
 var Library = function (props) {
     if (props.user.username === null) {
-        return React.createElement(react_router_1.Redirect, { to: "/" });
+        return React.createElement(react_router_1.Redirect, { to: "/search" });
     }
     var mappedLibraryBooks;
     props.library !== []

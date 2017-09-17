@@ -2,11 +2,12 @@ import * as React from "react";
 import BookCard from "../Containers/BookCardContainer";
 import "../Styles/Library.css";
 import { Redirect } from "react-router";
+import { User, ImageLinks, VolumeInfo } from "../utils/interfaces";
 
 interface LibraryProps {
   library: Array<BookObject>;
   fetchUserProps: Function;
-  user: object;
+  user: User;
 }
 
 interface BookObject {
@@ -21,13 +22,6 @@ interface BookObject {
   searchInfo: object;
 }
 
-export interface VolumeInfo {
-  imageLinks: ImageLinks;
-  authors: Array<string>;
-  title: string;
-  description: string;
-}
-
 export interface ImageLinks {
   smallThumbnail: string;
   thumbnail: string;
@@ -35,7 +29,7 @@ export interface ImageLinks {
 
 const Library = (props: LibraryProps) => {
   if (props.user.username === null) {
-    return <Redirect to="/" />;
+    return <Redirect to="/search" />;
   }
   let mappedLibraryBooks;
   props.library !== []
