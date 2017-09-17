@@ -1,9 +1,14 @@
 "use strict";
 exports.__esModule = true;
-exports.addFavoriteBook = function (id, volumeInfo, user_id) {
+exports.addFavoriteBook = function (book_id, volumeInfo, user_id) {
+    console.log(book_id);
     fetch("http://localhost:3000/api/v1/favorites/new", {
         method: "POST",
-        body: JSON.stringify({ id: id, volumeInfo: volumeInfo, user_id: user_id }),
+        body: JSON.stringify({
+            id: book_id,
+            volumeInfo: volumeInfo,
+            user_id: user_id
+        }),
         headers: { "Content-Type": "application/json" }
     })
         .then(function (res) { return res.json(); })

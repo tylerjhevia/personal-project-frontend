@@ -15,7 +15,7 @@ exports.storeUser = function (info) { return ({
     type: "STORE_USER",
     info: info
 }); };
-// export const addToLibrary = (info: object) => ({    //not using this
+// export const addToLibrary = (info: object) => ({    //not using this??
 //   type: "ADD_BOOK",
 //   info
 // });
@@ -46,7 +46,6 @@ exports.createUserInDB = function (username, email, password) {
     };
 };
 exports.fetchUserLibrary = function (user_id) {
-    console.log("fetching library");
     return function (dispatch) {
         fetch("http://localhost:3000/api/v1/favorites", {
             method: "POST",
@@ -55,5 +54,17 @@ exports.fetchUserLibrary = function (user_id) {
         })
             .then(function (res) { return res.json(); })
             .then(function (res) { return dispatch(exports.storeUserLibrary(res)); });
+    };
+};
+exports.deleteFromLibrary = function (user_id, book_id) {
+    console.log("user", user_id, "book", book_id);
+    return function (dispatch) {
+        fetch("http://localhost:3000/api/v1/favorites/delete", {
+            method: "DELETE",
+            body: JSON.stringify({ user_id: user_id, book_id: book_id }),
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (res) { return dispatch(console.log(res)); });
     };
 };

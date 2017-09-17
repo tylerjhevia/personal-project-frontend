@@ -1,6 +1,7 @@
 import * as React from "react";
-import Card from "../Containers/BookCardContainer";
+import BookCard from "../Containers/BookCardContainer";
 import "../Styles/Library.css";
+import { Redirect } from "react-router";
 
 interface LibraryProps {
   library: Array<BookObject>;
@@ -10,6 +11,7 @@ interface LibraryProps {
 
 interface BookObject {
   kind: string;
+  book_id: string;
   id: string;
   etag: string;
   selfLink: string;
@@ -32,15 +34,25 @@ export interface ImageLinks {
 }
 
 const Library = (props: LibraryProps) => {
-  if (props.user) {
+  if (props.user.username === null) {
+    return <Redirect to="/" />;
   }
   let mappedLibraryBooks;
   props.library !== []
-    ? (mappedLibraryBooks = props.library.map(book => <Card book={book} />))
-    : (mappedLibraryBooks = "uh-oh");
+    ? (mappedLibraryBooks = props.library.map(book =>
+        <BookCard
+          book={book}
+          inLibrary={true}
+          key={book.id}
+          book_id={book.book_id}
+        />
+      ))
+    : "Your library is empty!";
   return (
     <div className="library-div">
-      {props.library !== [] ? mappedLibraryBooks : "Your library is empty"}
+      {props.library !== []
+        ? mappedLibraryBooks
+        : <p className>No books in here</p>}
     </div>
   );
 };

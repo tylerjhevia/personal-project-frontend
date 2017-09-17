@@ -31,7 +31,7 @@ interface ImageLinks {
 
 const SearchResults = (props: SearchResultsProps) => {
   const mappedResults = props.searchResults.map(book =>
-    <BookCard key={book.id} book={book} />
+    <BookCard key={book.id} book={book} inLibrary={false} book_id={book.id} />
   );
   return (
     <div className="search-results-div">
