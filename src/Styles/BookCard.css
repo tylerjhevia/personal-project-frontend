@@ -41,7 +41,7 @@
   display: none;
 }
 
-.book-card:hover .book-author,
+/*.book-card:hover .book-author,
 .book-card:hover .book-title {
   display: none;
 }
@@ -50,7 +50,7 @@
   display: block;
   margin: 10px;
   overflow: scroll;
-}
+}*/
 
 .add-button {
   background-color: #fcecc9;
@@ -58,4 +58,8 @@
   font-size: 24px;
   outline: none;
   width: 100%;
+}
+
+.hidden {
+  display: none;
 }

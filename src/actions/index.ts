@@ -65,7 +65,6 @@ export const createUserInDB = (
 };
 
 export const fetchUserLibrary = (user_id: number) => {
-  console.log("fetching library");
   return (dispatch: Function) => {
     fetch("http://localhost:3000/api/v1/favorites", {
       method: "POST",
@@ -74,5 +73,18 @@ export const fetchUserLibrary = (user_id: number) => {
     })
       .then(res => res.json())
       .then(res => dispatch(storeUserLibrary(res)));
+  };
+};
+
+export const deleteFromLibrary = (user_id: number, book_id: string) => {
+  console.log("user", user_id, "book", book_id);
+  return (dispatch: Function) => {
+    fetch("http://localhost:3000/api/v1/favorites/delete", {
+      method: "DELETE",
+      body: JSON.stringify({ user_id: user_id, book_id: book_id }),
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(res => res.json())
+      .then(res => dispatch(console.log(res)));
   };
 };

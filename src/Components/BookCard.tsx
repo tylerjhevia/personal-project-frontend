@@ -4,10 +4,12 @@ import { addFavoriteBook } from "../utils/usersAPI";
 import { User } from "../utils/interfaces";
 
 interface BookCardProps {
-  addToLibrary: Function;
+  deleteFromLibrary: Function;
   book: BookObject;
   user: User;
   fetchUserLibrary: Function;
+  inLibrary: Boolean;
+  book_id: string;
 }
 
 interface BookObject {
@@ -34,19 +36,25 @@ interface ImageLinks {
 }
 
 const BookCard = (props: BookCardProps) => {
-  const { volumeInfo } = props.book;
   console.log("book props", props);
+  const { volumeInfo } = props.book;
   return (
     <div
       className="book-card"
-      onClick={() => {
-        if (props.user.id) {
-          addFavoriteBook(props.book.id, volumeInfo, props.user.id);
+      onClick={e => {
+        if (props.user.username) {
+          if (props.inLibrary === true) {
+            props.deleteFromLibrary(props.user.id, props.book_id);
+            e.currentTarget.classList.toggle("hidden");
+            props.fetchUserLibrary(props.user.id);
+          } else {
+            addFavoriteBook(props.book_id, volumeInfo, props.user.id);
+            props.fetchUserLibrary(props.user.id);
+          }
           props.fetchUserLibrary(props.user.id);
         }
       }}
     >
-      <button className="add-button">Add to library</button>
       <img
         className="book-image"
         src={
