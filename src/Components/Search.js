@@ -21,6 +21,7 @@ exports.__esModule = true;
 var React = require("react");
 var SearchResultsContainer_1 = require("../Containers/SearchResultsContainer");
 require("../Styles/Search.css");
+var react_router_1 = require("react-router");
 var Search = /** @class */ (function (_super) {
     __extends(Search, _super);
     function Search(props) {
@@ -29,6 +30,7 @@ var Search = /** @class */ (function (_super) {
         return _this;
     }
     Search.prototype.componentDidMount = function () {
+        console.log("search props", this.props);
         if (this.props.user.username) {
             this.props.fetchUserLibrary(this.props.user.id);
         }
@@ -38,6 +40,9 @@ var Search = /** @class */ (function (_super) {
     };
     Search.prototype.render = function () {
         var _this = this;
+        if (!this.props.user.username) {
+            return React.createElement(react_router_1.Redirect, { to: "/" });
+        }
         return (React.createElement("div", { className: "search-div" },
             React.createElement("p", { className: "logged-in-status" }, this.props.user.username
                 ? "Logged in as " + this.props.user.username

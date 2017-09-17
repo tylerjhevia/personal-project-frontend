@@ -1,5 +1,5 @@
 import { storeUser } from "../actions/index";
-import { Action, FetchedData } from "../utils/interfaces";
+import { Action, FetchedData, User } from "../utils/interfaces";
 
 interface State {
   name: string;
@@ -10,15 +10,16 @@ interface State {
   updated_at: string;
 }
 
-const initialState = {
-  username: null,
-  email: null,
-  password: null,
-  id: null,
-  created_at: null
-};
-
-const user = (state: object = initialState, action: Action) => {
+const user = (
+  state: User = {
+    username: null,
+    email: null,
+    password: null,
+    id: null,
+    created_at: null
+  },
+  action: Action
+) => {
   switch (action.type) {
     case "STORE_USER":
       return action.info;

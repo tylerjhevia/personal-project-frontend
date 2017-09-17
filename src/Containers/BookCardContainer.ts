@@ -9,7 +9,7 @@ const mapStateToProps = (state: Store) => {
   return { user: state.user };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators({ fetchUserLibrary, deleteFromLibrary }, dispatch);
 };
 
