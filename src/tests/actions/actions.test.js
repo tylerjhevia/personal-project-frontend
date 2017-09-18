@@ -65,6 +65,23 @@ describe("Actions", () => {
         );
       });
     });
+
+    describe("logout action", () => {
+      it("should create a logout action", () => {
+        const expectedAction = { type: "LOGOUT" };
+
+        expect(action.logout()).toEqual(expectedAction);
+      });
+    });
+
+    describe("errorMessage action", () => {
+      it("should store an error message", () => {
+        const message = "uh-oh";
+        const expectedAction = { type: "USERNAME_TAKEN", message };
+
+        expect(action.errorMessage(message)).toEqual(expectedAction);
+      });
+    });
   });
 
   describe("user fetch actions", () => {
