@@ -25,6 +25,7 @@
     "awesome-typescript-loader": "^3.2.3",
     "enzyme": "^2.9.1",
     "fetch-mock": "^5.12.2",
+    "jest": "^21.1.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
