@@ -15,6 +15,12 @@ interface SearchState {
   searchText: string;
 }
 
+interface Event {
+  target: {
+    value: string;
+  };
+}
+
 export default class Search extends React.Component<SearchProps, SearchState> {
   constructor(props: SearchProps) {
     super(props);
@@ -46,7 +52,7 @@ export default class Search extends React.Component<SearchProps, SearchState> {
         <input
           className="search-input"
           placeholder="Search for a book"
-          onChange={e => this.handleInput(e.target.value)}
+          onChange={(e: Event) => this.handleInput(e.target.value)}
         />
         <button
           className="search-button"

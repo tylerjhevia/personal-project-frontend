@@ -34,10 +34,12 @@ var Register = /** @class */ (function (_super) {
     };
     Register.prototype.render = function () {
         var _this = this;
+        console.log("registration props", this.props);
         if (this.props.currentUser.username) {
             return React.createElement(react_router_1.Redirect, { to: "/search" });
         }
         return (React.createElement("div", { className: "register-div" },
+            React.createElement("p", { className: "error-message" }, this.props.error ? this.props.error : "Welcome!"),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "username"); }, placeholder: "username", className: "username-input" }),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "email"); }, placeholder: "email", className: "email-input" }),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "password"); }, placeholder: "password", className: "password-input" }),
