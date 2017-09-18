@@ -59,7 +59,7 @@ const BookCard = (props: BookCardProps) => {
         className="recommend-button"
         onClick={() => props.recommendBook(volumeInfo)}
       >
-        Recommend me a book
+        Find similar books
       </button>
     </div>
   );

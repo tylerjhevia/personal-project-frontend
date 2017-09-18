@@ -76,6 +76,18 @@
   width: 100%;
 }
 
+.recommend-button {
+  background-color: #ffe66d;
+  color: black;
+  height: 20px;
+  width: 60%;
+}
+
+.recommend-button:hover {
+  background-color: orange;
+  color: white;
+}
+
 .hidden {
   display: none;
 }
@@ -108,5 +120,21 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 730px) {
+  .book-card img {
+    display: none;
+  }
+
+  .book-card {
+    height: 20vh;
+  }
+}
+
+@media (max-width: 620px) {
+  .recommend-button {
+    font-size: 8px;
   }
 }

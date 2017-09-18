@@ -1,4 +1,4 @@
-import { storeUser } from "../actions/index";
+import { storeUser, logout } from "../actions/index";
 import { Action, FetchedData, User } from "../utils/interfaces";
 
 interface State {
@@ -21,6 +21,8 @@ const user = (state: User = initialState, action: Action) => {
   switch (action.type) {
     case "STORE_USER":
       return action.info;
+    case "LOGOUT":
+      return initialState;
     default:
       return state;
   }

@@ -46,7 +46,7 @@ export default class Search extends React.Component<SearchProps, SearchState> {
       <div className="search-div">
         <p className="logged-in-status">
           {this.props.user.username
-            ? `Logged in as ${this.props.user.username}`
+            ? `Logged in as: ${this.props.user.username}`
             : "Please log in"}
         </p>
         <input

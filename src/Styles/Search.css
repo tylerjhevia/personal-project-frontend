@@ -4,6 +4,14 @@
 }
 
 .search-div {
+  animation: fadeIn ease-in 1;
+  animation-duration: 0.75s;
+  animation-fill-mode: forwards;
+  -moz-animation: fadeIn ease-in 1;
+  -moz-animation-duration: 0.75s;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.75s;
+  -webkit-animation-fill-mode: forwards;
   align-items: center;
   display: flex;
   height: 100%;
@@ -23,4 +31,39 @@
 .search-button:hover {
   background-color: orange;
   color: white;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .search-button,
+  .search-input {
+    height: 10%;
+    font-size: 20px;
+  }
 }

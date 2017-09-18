@@ -45,7 +45,7 @@ var Search = /** @class */ (function (_super) {
         }
         return (React.createElement("div", { className: "search-div" },
             React.createElement("p", { className: "logged-in-status" }, this.props.user.username
-                ? "Logged in as " + this.props.user.username
+                ? "Logged in as: " + this.props.user.username
                 : "Please log in"),
             React.createElement("input", { className: "search-input", placeholder: "Search for a book", onChange: function (e) { return _this.handleInput(e.target.value); } }),
             React.createElement("button", { className: "search-button", onClick: function () {

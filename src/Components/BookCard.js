@@ -19,6 +19,6 @@ var BookCard = function (props) {
                 React.createElement("h4", { className: "book-title" }, volumeInfo.title),
                 React.createElement("h5", { className: "book-author" }, volumeInfo.authors ? volumeInfo.authors[0] : "No author, I guess"),
                 React.createElement("p", { className: "book-description" }, volumeInfo.description))),
-        React.createElement("button", { className: "recommend-button", onClick: function () { return props.recommendBook(volumeInfo); } }, "Recommend me a book")));
+        React.createElement("button", { className: "recommend-button", onClick: function () { return props.recommendBook(volumeInfo); } }, "Find similar books")));
 };
 exports["default"] = BookCard;

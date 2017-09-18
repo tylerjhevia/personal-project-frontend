@@ -10,6 +10,7 @@ import { User } from "../utils/interfaces";
 interface AppProps {
   user: User;
   fetchUserLibrary: Function;
+  logout: Function;
 }
 
 export default class App extends React.Component<AppProps, {}> {
@@ -31,11 +32,16 @@ export default class App extends React.Component<AppProps, {}> {
               alt="book icon"
             />
           </NavLink>
-          {/*<NavLink to="/" className="link home-link">
-            Home
-          </NavLink>*/}
-          <NavLink to="/register" className="link register-link">
-            Register
+          <NavLink
+            to="/register"
+            className="link register-link"
+            onClick={() => {
+              if (this.props.user.username) {
+                return this.props.logout();
+              }
+            }}
+          >
+            {this.props.user.username ? "Logout" : "Register"}
           </NavLink>
           <NavLink to="/library" className="link library-link">
             Library

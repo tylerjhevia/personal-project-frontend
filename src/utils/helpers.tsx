@@ -22,16 +22,18 @@ export function handleClick(
 }
 
 export function recommendBook(bookInfo: VolumeInfo) {
-  let random = Math.round(Math.random() * 9);
-  console.log("random number: ", random);
   if (bookInfo.description) {
     const keyphrase = bookInfo.description;
-    getBookData(`https://www.googleapis.com/books/v1/volumes?q=${keyphrase}`);
-  } else if (bookInfo.categories[0] !== undefined) {
+    return getBookData(
+      `https://www.googleapis.com/books/v1/volumes?q=${keyphrase}`
+    );
+  } else if (bookInfo.categories !== undefined) {
     const keyword = bookInfo.categories[0];
-    getBookData(`https://www.googleapis.com/books/v1/volumes?q=${keyword}`);
+    return getBookData(
+      `https://www.googleapis.com/books/v1/volumes?q=${keyword}`
+    );
   } else {
-    getBookData(
+    return getBookData(
       `https://www.googleapis.com/books/v1/volumes?q=${bookInfo.title}`
     );
   }
