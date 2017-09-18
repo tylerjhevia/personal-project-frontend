@@ -15,10 +15,12 @@
 .search-input,
 .search-button {
   font-size: 50px;
-  height: 60px;
+  height: 25%;
   text-align: center;
   width: 60%;
 }
 
-.search-button {
+.search-button:hover {
+  background-color: orange;
+  color: white;
 }
