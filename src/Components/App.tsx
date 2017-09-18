@@ -23,9 +23,17 @@ export default class App extends React.Component<AppProps, {}> {
     return (
       <div className="app-div">
         <header className="main-header">
-          <NavLink to="/" className="link home-link">
-            Home
+          <NavLink to="/" className="site-title">
+            Bookster
+            <img
+              className="book-icon"
+              src="https://image.flaticon.com/icons/svg/167/167756.svg"
+              alt="book icon"
+            />
           </NavLink>
+          {/*<NavLink to="/" className="link home-link">
+            Home
+          </NavLink>*/}
           <NavLink to="/register" className="link register-link">
             Register
           </NavLink>
@@ -37,6 +45,9 @@ export default class App extends React.Component<AppProps, {}> {
           </NavLink>
         </header>
         <div className="current-view">
+          {!this.props.user.username
+            ? <p className="welcome-message">Welcome!</p>
+            : null}
           <Route exact path="/" component={Login} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/register" component={Register} />

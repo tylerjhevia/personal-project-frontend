@@ -30,11 +30,16 @@ var App = /** @class */ (function (_super) {
     App.prototype.render = function () {
         return (React.createElement("div", { className: "app-div" },
             React.createElement("header", { className: "main-header" },
-                React.createElement(react_router_dom_1.NavLink, { to: "/", className: "link home-link" }, "Home"),
+                React.createElement(react_router_dom_1.NavLink, { to: "/", className: "site-title" },
+                    "Bookster",
+                    React.createElement("img", { className: "book-icon", src: "https://image.flaticon.com/icons/svg/167/167756.svg", alt: "book icon" })),
                 React.createElement(react_router_dom_1.NavLink, { to: "/register", className: "link register-link" }, "Register"),
                 React.createElement(react_router_dom_1.NavLink, { to: "/library", className: "link library-link" }, "Library"),
                 React.createElement(react_router_dom_1.NavLink, { to: "/search", className: "link search-link" }, "Search")),
             React.createElement("div", { className: "current-view" },
+                !this.props.user.username
+                    ? React.createElement("p", { className: "welcome-message" }, "Welcome!")
+                    : null,
                 React.createElement(react_router_dom_1.Route, { exact: true, path: "/", component: LoginContainer_1["default"] }),
                 React.createElement(react_router_dom_1.Route, { exact: true, path: "/search", component: SearchContainer_1["default"] }),
                 React.createElement(react_router_dom_1.Route, { exact: true, path: "/register", component: RegisterContainer_1["default"] }),

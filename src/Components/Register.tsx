@@ -7,6 +7,7 @@ interface RegistrationProps {
   createUserInDB: Function;
   currentUser: User;
   error: string;
+  checkIfUserExists: Function;
 }
 
 interface RegistrationState {
@@ -50,7 +51,9 @@ export default class Register extends React.Component<
     return (
       <div className="register-div">
         <p className="error-message">
-          {this.props.error ? this.props.error : "Welcome!"}
+          {this.props.error
+            ? this.props.error
+            : "Please enter your information"}
         </p>
         <input
           onChange={(e: Event) => this.handleChange(e.target.value, "username")}
@@ -66,11 +69,12 @@ export default class Register extends React.Component<
           onChange={(e: Event) => this.handleChange(e.target.value, "password")}
           placeholder="password"
           className="password-input"
+          type="password"
         />
         <button
           className="register-button"
           onClick={() => {
-            this.props.createUserInDB(
+            this.props.checkIfUserExists(
               this.state.username,
               this.state.email,
               this.state.password

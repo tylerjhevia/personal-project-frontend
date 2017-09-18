@@ -46,13 +46,47 @@ export const fetchUserFromDB = (username: string, password: string) => {
       .then(res => res.json())
       .then((res: Response) => {
         console.log("fetch user res", res);
-        if (res.length === 1) {
+        if (res.length === 0) {
+          return dispatch(
+            errorMessage(
+              "Username or password is incorrect. Please enter valid info."
+            )
+          );
+        }
+        if (res[0].password === password) {
           return dispatch(storeUser(res[0]));
         } else {
-          return dispatch(errorMessage("Username already exists"));
+          return dispatch(
+            errorMessage(
+              "Username or password is incorrect. Please enter valid info."
+            )
+          );
         }
       })
       .catch((error: Response) => console.log(error));
+  };
+};
+
+export const checkIfUserExists = (
+  username: string,
+  password: string,
+  email: string
+): ((dispatch: Function) => void) => {
+  console.log("checking user");
+  return (dispatch: Function) => {
+    fetch("http://localhost:3000/api/v1/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: username })
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.length === 0) {
+          return dispatch(createUserInDB(username, password, email));
+        } else {
+          return dispatch(errorMessage("Username already taken"));
+        }
+      });
   };
 };
 
@@ -72,7 +106,7 @@ export const createUserInDB = (
         console.log("create user res", res);
         dispatch(fetchUserFromDB(username, password));
       })
-      .catch(error => console.log(error.message));
+      .catch(error => console.log(error));
   };
 };
 
