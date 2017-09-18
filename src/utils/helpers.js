@@ -16,18 +16,16 @@ function handleClick(props, e, volumeInfo) {
 }
 exports.handleClick = handleClick;
 function recommendBook(bookInfo) {
-    var random = Math.round(Math.random() * 9);
-    console.log("random number: ", random);
     if (bookInfo.description) {
         var keyphrase = bookInfo.description;
-        index_1.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + keyphrase);
+        return index_1.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + keyphrase);
     }
-    else if (bookInfo.categories[0] !== undefined) {
+    else if (bookInfo.categories !== undefined) {
         var keyword = bookInfo.categories[0];
-        index_1.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + keyword);
+        return index_1.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + keyword);
     }
     else {
-        index_1.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + bookInfo.title);
+        return index_1.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + bookInfo.title);
     }
 }
 exports.recommendBook = recommendBook;

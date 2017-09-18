@@ -16,6 +16,11 @@ exports.storeUser = function (info) { return ({
     type: "STORE_USER",
     info: info
 }); };
+exports.logout = function () {
+    ({
+        type: "LOGOUT"
+    });
+};
 exports.storeUserLibrary = function (info) { return ({
     type: "GET_LIBRARY",
     info: info
@@ -111,28 +116,3 @@ exports.recommendBook = function (bookInfo) {
         }
     };
 };
-// export const recommendBook = (bookInfo: VolumeInfo) => {
-//   return (dispatch: Function) => {
-//     let random = Math.round(Math.random() * 9);
-//     console.log("random number: ", random);
-//     if (bookInfo.description) {
-//       const keyphrase = bookInfo.description;
-//       dispatch(
-//         getBookData(
-//           `https://www.googleapis.com/books/v1/volumes?q=${keyphrase}`
-//         )
-//       );
-//     } else if (bookInfo.categories[0]) {
-//       const keyword = bookInfo.categories[0];
-//       dispatch(
-//         getBookData(`https://www.googleapis.com/books/v1/volumes?q=${keyword}`)
-//       );
-//     } else {
-//       dispatch(
-//         getBookData(
-//           `https://www.googleapis.com/books/v1/volumes?q=${bookInfo.title}`
-//         )
-//       );
-//     }
-//   };
-// };

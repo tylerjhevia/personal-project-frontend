@@ -2,6 +2,7 @@ import * as React from "react";
 import "../Styles/Register.css";
 import { Info, User } from "../utils/interfaces";
 import { Redirect } from "react-router";
+import { NavLink } from "react-router-dom";
 
 interface RegistrationProps {
   createUserInDB: Function;
@@ -90,6 +91,9 @@ export default class Register extends React.Component<
         >
           Create Account
         </button>
+        <NavLink className="login-redirect" to="/">
+          Already have an account? Log in
+        </NavLink>
       </div>
     );
   }

@@ -21,6 +21,7 @@ exports.__esModule = true;
 var React = require("react");
 require("../Styles/Register.css");
 var react_router_1 = require("react-router");
+var react_router_dom_1 = require("react-router-dom");
 var Register = /** @class */ (function (_super) {
     __extends(Register, _super);
     function Register(props) {
@@ -51,7 +52,8 @@ var Register = /** @class */ (function (_super) {
                     ? true
                     : false, onClick: function () {
                     _this.props.checkIfUserExists(_this.state.username, _this.state.email, _this.state.password);
-                } }, "Create Account")));
+                } }, "Create Account"),
+            React.createElement(react_router_dom_1.NavLink, { className: "login-redirect", to: "/" }, "Already have an account? Log in")));
     };
     return Register;
 }(React.Component));

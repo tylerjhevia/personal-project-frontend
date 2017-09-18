@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { fetchUserLibrary } from "../actions/index";
+import { fetchUserLibrary, logout } from "../actions/index";
 import { bindActionCreators } from "redux";
 import { Store, User } from "../utils/interfaces";
 import App from "../Components/App";
@@ -18,7 +18,7 @@ const mapStateToProps = (state: Store) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators({ fetchUserLibrary }, dispatch);
+  return bindActionCreators({ fetchUserLibrary, logout }, dispatch);
 };
 
 export default connect<StateFromProps, DispatchFromProps, void>(

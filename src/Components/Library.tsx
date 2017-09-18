@@ -6,7 +6,7 @@ import { User, ImageLinks, VolumeInfo } from "../utils/interfaces";
 
 interface LibraryProps {
   library: Array<BookObject>;
-  fetchUserProps: Function;
+  fetchUserLibrary: Function;
   user: User;
 }
 

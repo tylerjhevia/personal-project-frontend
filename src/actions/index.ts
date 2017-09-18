@@ -26,6 +26,12 @@ export const storeUser = (info: object) => ({
   info
 });
 
+export const logout = () => {
+  ({
+    type: "LOGOUT"
+  });
+};
+
 export const storeUserLibrary = (info: object) => ({
   type: "GET_LIBRARY",
   info

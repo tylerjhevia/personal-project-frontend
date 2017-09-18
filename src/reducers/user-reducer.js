@@ -12,6 +12,8 @@ var user = function (state, action) {
     switch (action.type) {
         case "STORE_USER":
             return action.info;
+        case "LOGOUT":
+            return initialState;
         default:
             return state;
     }

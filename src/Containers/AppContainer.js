@@ -8,6 +8,6 @@ var mapStateToProps = function (state) {
     return { user: state.user };
 };
 var mapDispatchToProps = function (dispatch) {
-    return redux_1.bindActionCreators({ fetchUserLibrary: index_1.fetchUserLibrary }, dispatch);
+    return redux_1.bindActionCreators({ fetchUserLibrary: index_1.fetchUserLibrary, logout: index_1.logout }, dispatch);
 };
 exports["default"] = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(App_1["default"]);

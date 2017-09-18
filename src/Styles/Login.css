@@ -41,6 +41,7 @@
 NavLink {
   color: white;
   font-size: 32px;
+  text-align: center;
 }
 
 NavLink span {
@@ -50,6 +51,10 @@ NavLink span {
 NavLink:hover {
   color: orange;
   cursor: pointer;
+}
+
+.register-link {
+  text-align: center;
 }
 
 .error-message {
@@ -89,5 +94,15 @@ NavLink:hover {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 620px) {
+  .login-div button,
+  .login-div input {
+    font-size: 16px;
+  }
+  .login-div {
+    width: 70%;
   }
 }
