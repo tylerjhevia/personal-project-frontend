@@ -62,6 +62,11 @@ export default class Login extends React.Component<LoginProps, LoginState> {
         />
         <button
           className="login-button"
+          disabled={
+            this.state.username === "" || this.state.password === ""
+              ? true
+              : false
+          }
           onClick={() => {
             this.props.fetchUserFromDB(
               this.state.username,

@@ -45,7 +45,11 @@ var Register = /** @class */ (function (_super) {
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "username"); }, placeholder: "username", className: "username-input" }),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "email"); }, placeholder: "email", className: "email-input" }),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "password"); }, placeholder: "password", className: "password-input", type: "password" }),
-            React.createElement("button", { className: "register-button", onClick: function () {
+            React.createElement("button", { className: "register-button", disabled: this.state.username === "" ||
+                    this.state.password === "" ||
+                    this.state.email === ""
+                    ? true
+                    : false, onClick: function () {
                     _this.props.checkIfUserExists(_this.state.username, _this.state.email, _this.state.password);
                 } }, "Create Account")));
     };

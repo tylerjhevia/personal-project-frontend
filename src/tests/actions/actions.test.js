@@ -91,8 +91,8 @@ describe("Actions", () => {
       fetchMock.restore();
     });
 
-    it("should fetch user data on login", () => {
-      mockData = { username: "tyler", password: "pizza" };
+    it.skip("should fetch user data on login", () => {
+      mockDataUser = { username: "tyler", password: "pizza" };
     });
   });
 });

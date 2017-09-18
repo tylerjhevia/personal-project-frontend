@@ -1,4 +1,12 @@
 .register-div {
+  animation: fadeIn ease-in 1;
+  animation-duration: 0.75s;
+  animation-fill-mode: forwards;
+  -moz-animation: fadeIn ease-in 1;
+  -moz-animation-duration: 0.75s;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.75s;
+  -webkit-animation-fill-mode: forwards;
   align-items: center;
   background-color: #343434;
   display: flex;
@@ -12,13 +20,22 @@
 .register-div button {
   font-size: 32px;
   height: 35px;
-  text-align: center;
   width: 80%;
 }
 
 .register-button {
+  background-color: #fcecc9;
   border: none;
   outline: none;
+}
+
+.register-button:hover {
+  background-color: orange;
+}
+
+.register-button:disabled {
+  background-color: gray;
+  color: white;
 }
 
 .error-message {
@@ -26,6 +43,7 @@
   animation-duration: 0.75s;
   animation-fill-mode: forwards;
   color: white;
+  text-align: center;
   -moz-animation: fadeIn ease-in 1;
   -moz-animation-duration: 0.75s;
   -moz-animation-fill-mode: forwards;

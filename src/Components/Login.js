@@ -45,7 +45,9 @@ var Login = /** @class */ (function (_super) {
                 : "Please enter your information"),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "username"); }, placeholder: "username", className: "username-input" }),
             React.createElement("input", { onChange: function (e) { return _this.handleChange(e.target.value, "password"); }, placeholder: "password", className: "password-input", type: "password" }),
-            React.createElement("button", { className: "login-button", onClick: function () {
+            React.createElement("button", { className: "login-button", disabled: this.state.username === "" || this.state.password === ""
+                    ? true
+                    : false, onClick: function () {
                     _this.props.fetchUserFromDB(_this.state.username, _this.state.password);
                     if (_this.props.currentUser.username) {
                         return React.createElement(react_router_1.Redirect, { to: "/search" });

@@ -73,6 +73,13 @@ export default class Register extends React.Component<
         />
         <button
           className="register-button"
+          disabled={
+            this.state.username === "" ||
+            this.state.password === "" ||
+            this.state.email === ""
+              ? true
+              : false
+          }
           onClick={() => {
             this.props.checkIfUserExists(
               this.state.username,

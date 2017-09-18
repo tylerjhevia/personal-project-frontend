@@ -14,8 +14,12 @@ var Library = function (props) {
             return React.createElement(BookCardContainer_1["default"], { book: book, inLibrary: true, key: book.id, book_id: book.book_id });
         }))
         : "Your library is empty!";
-    return (React.createElement("div", { className: "library-div" }, props.library !== []
-        ? mappedLibraryBooks
-        : React.createElement("p", { className: 'empty-message' }, "No books in here")));
+    return (React.createElement("div", { className: "library-div" },
+        React.createElement("h3", { className: "library-label" },
+            props.user.username,
+            "'s saved books"),
+        props.library !== []
+            ? mappedLibraryBooks
+            : React.createElement("p", { className: "empty-message" }, "No books in here")));
 };
 exports["default"] = Library;

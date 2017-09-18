@@ -44,9 +44,12 @@ const Library = (props: LibraryProps) => {
     : "Your library is empty!";
   return (
     <div className="library-div">
+      <h3 className="library-label">
+        {props.user.username}'s saved books
+      </h3>
       {props.library !== []
         ? mappedLibraryBooks
-        : <p className='empty-message'>No books in here</p>}
+        : <p className="empty-message">No books in here</p>}
     </div>
   );
 };

@@ -3,6 +3,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: fadeIn ease-in 1;
+  animation-duration: 0.75s;
+  animation-fill-mode: forwards;
+  -moz-animation: fadeIn ease-in 1;
+  -moz-animation-duration: 0.75s;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.75s;
+  -webkit-animation-fill-mode: forwards;
 }
 
 .book-card {
@@ -35,7 +43,7 @@
 }
 
 .book-title {
-  font-size: 24px;
+  font-size: 16px;
   height: 15%;
   margin-bottom: 10px;
 }
@@ -46,18 +54,19 @@
 
 .book-description {
   display: none;
+  font-size: 12px;
 }
 
-/*.book-card:hover .book-author,
+.book-card:hover .book-author,
 .book-card:hover .book-title {
   display: none;
 }
 
-.book-card:hover p {
+.book-card:hover .book-description {
   display: block;
   margin: 10px;
   overflow: scroll;
-}*/
+}
 
 .add-button {
   background-color: #fcecc9;
@@ -73,4 +82,31 @@
 
 .selected {
   border: 10px solid purple;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
