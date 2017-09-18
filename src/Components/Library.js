@@ -16,6 +16,6 @@ var Library = function (props) {
         : "Your library is empty!";
     return (React.createElement("div", { className: "library-div" }, props.library !== []
         ? mappedLibraryBooks
-        : React.createElement("p", { className: true }, "No books in here")));
+        : React.createElement("p", { className: 'empty-message' }, "No books in here")));
 };
 exports["default"] = Library;

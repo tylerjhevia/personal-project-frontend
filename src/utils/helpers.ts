@@ -11,14 +11,12 @@ export function handleClick(
   if (props.inLibrary === true) {
     props.deleteFromLibrary(props.user.id, props.book_id);
     e.currentTarget.classList.toggle("hidden");
-    props.fetchUserLibrary(props.user.id);
   } else {
     addFavoriteBook(props.book_id, volumeInfo, props.user.id);
     e.currentTarget.classList.toggle("selected");
-    props.fetchUserLibrary(props.user.id);
   }
-
-  props.fetchUserLibrary(props.user.id);
+  console.log("finna fetch library");
+  return props.fetchUserLibrary(props.user.id);
 }
 
 export function recommendBook(bookInfo: VolumeInfo) {

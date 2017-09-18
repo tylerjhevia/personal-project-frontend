@@ -10,7 +10,7 @@ var BookCard = function (props) {
         React.createElement("div", { className: "book-card", onClick: function (e) {
                 props.user.username
                     ? helpers_1.handleClick(props, e, volumeInfo)
-                    : alert("fart");
+                    : alert("not logged in");
             } },
             React.createElement("img", { className: "book-image", src: volumeInfo.imageLinks
                     ? volumeInfo.imageLinks.smallThumbnail

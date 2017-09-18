@@ -8,6 +8,7 @@ import { User } from "../utils/interfaces";
 interface LoginProps {
   currentUser: User;
   fetchUserFromDB: Function;
+  error: string;
 }
 
 interface LoginState {
@@ -42,6 +43,11 @@ export default class Login extends React.Component<LoginProps, LoginState> {
     }
     return (
       <div className="login-div">
+        <p className="error-message">
+          {this.props.error
+            ? this.props.error
+            : "Please enter your information"}
+        </p>
         <input
           onChange={(e: Event) => this.handleChange(e.target.value, "username")}
           placeholder="username"
@@ -52,6 +58,7 @@ export default class Login extends React.Component<LoginProps, LoginState> {
           onChange={(e: Event) => this.handleChange(e.target.value, "password")}
           placeholder="password"
           className="password-input"
+          type="password"
         />
         <button
           className="login-button"

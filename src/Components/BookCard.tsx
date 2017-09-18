@@ -32,7 +32,7 @@ const BookCard = (props: BookCardProps) => {
         onClick={(e: Event) => {
           props.user.username
             ? handleClick(props, e, volumeInfo)
-            : alert("fart");
+            : alert("not logged in");
         }}
       >
         <img
@@ -57,7 +57,7 @@ const BookCard = (props: BookCardProps) => {
       </div>
       <button
         className="recommend-button"
-        {/*onClick={() => props.recommendBook(volumeInfo)}*/}
+        onClick={() => props.recommendBook(volumeInfo)}
       >
         Recommend me a book
       </button>

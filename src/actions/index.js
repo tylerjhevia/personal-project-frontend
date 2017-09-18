@@ -34,13 +34,35 @@ exports.fetchUserFromDB = function (username, password) {
             .then(function (res) { return res.json(); })
             .then(function (res) {
             console.log("fetch user res", res);
-            if (res.length === 1) {
+            if (res.length === 0) {
+                return dispatch(exports.errorMessage("Username or password is incorrect. Please enter valid info."));
+            }
+            if (res[0].password === password) {
                 return dispatch(exports.storeUser(res[0]));
             }
             else {
-                return dispatch(exports.errorMessage("Username already exists"));
+                return dispatch(exports.errorMessage("Username or password is incorrect. Please enter valid info."));
             }
         })["catch"](function (error) { return console.log(error); });
+    };
+};
+exports.checkIfUserExists = function (username, password, email) {
+    console.log("checking user");
+    return function (dispatch) {
+        fetch("http://localhost:3000/api/v1/users", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username: username })
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (res) {
+            if (res.length === 0) {
+                return dispatch(exports.createUserInDB(username, password, email));
+            }
+            else {
+                return dispatch(exports.errorMessage("Username already taken"));
+            }
+        });
     };
 };
 exports.createUserInDB = function (username, email, password) {
@@ -54,7 +76,7 @@ exports.createUserInDB = function (username, email, password) {
             .then(function (res) {
             console.log("create user res", res);
             dispatch(exports.fetchUserFromDB(username, password));
-        })["catch"](function (error) { return console.log(error.message); });
+        })["catch"](function (error) { return console.log(error); });
     };
 };
 exports.fetchUserLibrary = function (user_id) {
