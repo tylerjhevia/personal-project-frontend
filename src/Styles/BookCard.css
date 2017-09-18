@@ -1,3 +1,10 @@
+.book-card-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .book-card {
   align-items: center;
   background-color: #343434;

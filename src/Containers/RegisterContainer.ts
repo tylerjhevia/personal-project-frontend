@@ -6,7 +6,7 @@ import { bindActionCreators } from "redux";
 import { Store } from "../utils/interfaces";
 
 const mapStateToProps = (state: Store) => {
-  return { currentUser: state.user };
+  return { currentUser: state.user, error: state.error };
 };
 
 const mapDispatchToProps = (dispatch: any) => {

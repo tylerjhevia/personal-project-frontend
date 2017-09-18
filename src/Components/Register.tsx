@@ -6,6 +6,7 @@ import { Redirect } from "react-router";
 interface RegistrationProps {
   createUserInDB: Function;
   currentUser: User;
+  error: string;
 }
 
 interface RegistrationState {
@@ -42,11 +43,15 @@ export default class Register extends React.Component<
   }
 
   public render() {
+    console.log("registration props", this.props);
     if (this.props.currentUser.username) {
       return <Redirect to="/search" />;
     }
     return (
       <div className="register-div">
+        <p className="error-message">
+          {this.props.error ? this.props.error : "Welcome!"}
+        </p>
         <input
           onChange={(e: Event) => this.handleChange(e.target.value, "username")}
           placeholder="username"

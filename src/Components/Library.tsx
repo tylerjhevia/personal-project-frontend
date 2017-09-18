@@ -46,7 +46,7 @@ const Library = (props: LibraryProps) => {
     <div className="library-div">
       {props.library !== []
         ? mappedLibraryBooks
-        : <p className>No books in here</p>}
+        : <p className='empty-message'>No books in here</p>}
     </div>
   );
 };

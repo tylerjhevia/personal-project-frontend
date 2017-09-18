@@ -5,7 +5,7 @@ var index_1 = require("../actions/index");
 var Register_1 = require("../Components/Register");
 var redux_1 = require("redux");
 var mapStateToProps = function (state) {
-    return { currentUser: state.user };
+    return { currentUser: state.user, error: state.error };
 };
 var mapDispatchToProps = function (dispatch) {
     return redux_1.bindActionCreators({ createUserInDB: index_1.createUserInDB }, dispatch);

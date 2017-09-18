@@ -8,6 +8,6 @@ var mapStateToProps = function (state) {
     return { user: state.user };
 };
 var mapDispatchToProps = function (dispatch) {
-    return redux_1.bindActionCreators({ fetchUserLibrary: index_1.fetchUserLibrary, deleteFromLibrary: index_1.deleteFromLibrary }, dispatch);
+    return redux_1.bindActionCreators({ fetchUserLibrary: index_1.fetchUserLibrary, deleteFromLibrary: index_1.deleteFromLibrary, recommendBook: index_1.recommendBook }, dispatch);
 };
 exports["default"] = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(BookCard_1["default"]);

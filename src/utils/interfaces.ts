@@ -19,6 +19,7 @@ export interface Store {
   user: User;
   searchResults: Array<BookObject>;
   library: Array<BookObject>;
+  error: string;
 }
 
 export interface User {
@@ -41,6 +42,7 @@ export interface BookObject {
 }
 
 export interface VolumeInfo {
+  categories: Array<string>;
   imageLinks: ImageLinks;
   authors: Array<string>;
   title: string;

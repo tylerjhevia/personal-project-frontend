@@ -5,6 +5,7 @@ exports.storeBook = function (info) { return ({
     info: info
 }); };
 exports.getBookData = function (url) {
+    console.log("getting data", url);
     return function (dispatch) {
         fetch(url)
             .then(function (data) { return data.json(); })
@@ -15,13 +16,13 @@ exports.storeUser = function (info) { return ({
     type: "STORE_USER",
     info: info
 }); };
-// export const addToLibrary = (info: object) => ({    //not using this??
-//   type: "ADD_BOOK",
-//   info
-// });
 exports.storeUserLibrary = function (info) { return ({
     type: "GET_LIBRARY",
     info: info
+}); };
+exports.errorMessage = function (message) { return ({
+    type: "USERNAME_TAKEN",
+    message: message
 }); };
 exports.fetchUserFromDB = function (username, password) {
     return function (dispatch) {
@@ -31,7 +32,15 @@ exports.fetchUserFromDB = function (username, password) {
             body: JSON.stringify({ username: username, password: password })
         })
             .then(function (res) { return res.json(); })
-            .then(function (res) { return dispatch(exports.storeUser(res[0])); })["catch"](function (error) { return console.log(error); });
+            .then(function (res) {
+            console.log("fetch user res", res);
+            if (res.length === 1) {
+                return dispatch(exports.storeUser(res[0]));
+            }
+            else {
+                return dispatch(exports.errorMessage("Username already exists"));
+            }
+        })["catch"](function (error) { return console.log(error); });
     };
 };
 exports.createUserInDB = function (username, email, password) {
@@ -42,7 +51,10 @@ exports.createUserInDB = function (username, email, password) {
             body: JSON.stringify({ username: username, password: password, email: email })
         })
             .then(function (res) { return res.json(); })
-            .then(function (res) { return dispatch(exports.fetchUserFromDB(username, password)); })["catch"](function (error) { return error.message; });
+            .then(function (res) {
+            console.log("create user res", res);
+            dispatch(exports.fetchUserFromDB(username, password));
+        })["catch"](function (error) { return console.log(error.message); });
     };
 };
 exports.fetchUserLibrary = function (user_id) {
@@ -66,5 +78,14 @@ exports.deleteFromLibrary = function (user_id, book_id) {
         })
             .then(function (res) { return res.json(); })
             .then(function (res) { return dispatch(console.log(res)); });
+    };
+};
+exports.recommendBook = function (bookInfo) {
+    return function (dispatch) {
+        var random = Math.round(Math.random() * 9);
+        if (bookInfo.categories[0]) {
+            var keyword = bookInfo.categories[0];
+            dispatch(exports.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + keyword));
+        }
     };
 };

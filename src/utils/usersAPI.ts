@@ -3,7 +3,6 @@ export const addFavoriteBook = (
   volumeInfo: object,
   user_id: number
 ) => {
-  console.log(book_id);
   fetch("http://localhost:3000/api/v1/favorites/new", {
     method: "POST",
     body: JSON.stringify({
