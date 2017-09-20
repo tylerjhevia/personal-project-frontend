@@ -80,5 +80,10 @@
   .search-input {
     height: 10%;
     font-size: 20px;
+    width: 80%;
+  }
+
+  .logged-in-status {
+    font-size: 14px;
   }
 }
