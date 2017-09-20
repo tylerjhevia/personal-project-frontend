@@ -28,6 +28,7 @@ export interface ImageLinks {
 }
 
 const Library = (props: LibraryProps) => {
+  console.log(props);
   if (!props.user.username) {
     return <Redirect to="/search" />;
   }

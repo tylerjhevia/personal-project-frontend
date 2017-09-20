@@ -5,7 +5,8 @@ var BookCardContainer_1 = require("../Containers/BookCardContainer");
 require("../Styles/Library.css");
 var react_router_1 = require("react-router");
 var Library = function (props) {
-    if (props.user.username === null) {
+    console.log(props);
+    if (!props.user.username) {
         return React.createElement(react_router_1.Redirect, { to: "/search" });
     }
     var mappedLibraryBooks;
