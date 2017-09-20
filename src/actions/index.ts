@@ -144,10 +144,16 @@ export const deleteFromLibrary = (user_id: number, book_id: string) => {
 export const recommendBook = (bookInfo: VolumeInfo) => {
   return (dispatch: Function) => {
     let random = Math.round(Math.random() * 9);
-    if (bookInfo.categories[0]) {
+    if (bookInfo.categories) {
       const keyword = bookInfo.categories[0];
       dispatch(
         getBookData(`https://www.googleapis.com/books/v1/volumes?q=${keyword}`)
+      );
+    } else {
+      dispatch(
+        getBookData(
+          `https://www.googleapis.com/books/v1/volumes?q=${bookInfo.title}`
+        )
       );
     }
   };

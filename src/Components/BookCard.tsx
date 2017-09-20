@@ -3,6 +3,8 @@ import "../Styles/BookCard.css";
 import { addFavoriteBook } from "../utils/usersAPI";
 import { User, VolumeInfo, ImageLinks, BookObject } from "../utils/interfaces";
 import { handleClick } from "../utils/helpers";
+import { Redirect } from "react-router";
+import { NavLink } from "react-router-dom";
 
 export interface BookCardProps {
   deleteFromLibrary: Function;
@@ -23,7 +25,6 @@ export interface Event {
 }
 
 const BookCard = (props: BookCardProps) => {
-  console.log("book props", props);
   const { volumeInfo } = props.book;
   return (
     <div className="book-card-container">
@@ -55,12 +56,13 @@ const BookCard = (props: BookCardProps) => {
           </p>
         </div>
       </div>
-      <button
+      <NavLink
+        to="/search"
         className="recommend-button"
         onClick={() => props.recommendBook(volumeInfo)}
       >
         Find similar books
-      </button>
+      </NavLink>
     </div>
   );
 };

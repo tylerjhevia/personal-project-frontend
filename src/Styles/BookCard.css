@@ -57,12 +57,18 @@
   font-size: 12px;
 }
 
+.book-card:hover {
+  cursor: pointer;
+}
+
 .book-card:hover .book-author,
 .book-card:hover .book-title {
+  cursor: pointer;
   display: none;
 }
 
 .book-card:hover .book-description {
+  cursor: pointer;
   display: block;
   margin: 10px;
   overflow: scroll;
@@ -77,15 +83,16 @@
 }
 
 .recommend-button {
-  background-color: #ffe66d;
-  color: black;
+  background-color: #343434;
+  color: white;
   height: 20px;
+  padding: 5px;
   width: 60%;
 }
 
 .recommend-button:hover {
   background-color: orange;
-  color: white;
+  color: black;
 }
 
 .hidden {

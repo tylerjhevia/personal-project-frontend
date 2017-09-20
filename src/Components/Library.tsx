@@ -28,7 +28,8 @@ export interface ImageLinks {
 }
 
 const Library = (props: LibraryProps) => {
-  if (props.user.username === null) {
+  console.log(props);
+  if (!props.user.username) {
     return <Redirect to="/search" />;
   }
   let mappedLibraryBooks;

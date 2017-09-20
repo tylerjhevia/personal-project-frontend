@@ -110,9 +110,12 @@ exports.deleteFromLibrary = function (user_id, book_id) {
 exports.recommendBook = function (bookInfo) {
     return function (dispatch) {
         var random = Math.round(Math.random() * 9);
-        if (bookInfo.categories[0]) {
+        if (bookInfo.categories) {
             var keyword = bookInfo.categories[0];
             dispatch(exports.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + keyword));
+        }
+        else {
+            dispatch(exports.getBookData("https://www.googleapis.com/books/v1/volumes?q=" + bookInfo.title));
         }
     };
 };

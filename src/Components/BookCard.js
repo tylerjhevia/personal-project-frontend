@@ -3,8 +3,8 @@ exports.__esModule = true;
 var React = require("react");
 require("../Styles/BookCard.css");
 var helpers_1 = require("../utils/helpers");
+var react_router_dom_1 = require("react-router-dom");
 var BookCard = function (props) {
-    console.log("book props", props);
     var volumeInfo = props.book.volumeInfo;
     return (React.createElement("div", { className: "book-card-container" },
         React.createElement("div", { className: "book-card", onClick: function (e) {
@@ -19,6 +19,6 @@ var BookCard = function (props) {
                 React.createElement("h4", { className: "book-title" }, volumeInfo.title),
                 React.createElement("h5", { className: "book-author" }, volumeInfo.authors ? volumeInfo.authors[0] : "No author, I guess"),
                 React.createElement("p", { className: "book-description" }, volumeInfo.description))),
-        React.createElement("button", { className: "recommend-button", onClick: function () { return props.recommendBook(volumeInfo); } }, "Find similar books")));
+        React.createElement(react_router_dom_1.NavLink, { to: "/search", className: "recommend-button", onClick: function () { return props.recommendBook(volumeInfo); } }, "Find similar books")));
 };
 exports["default"] = BookCard;
