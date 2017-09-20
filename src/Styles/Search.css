@@ -20,6 +20,21 @@
   width: 100%;
 }
 
+.logged-in-status {
+  animation: 1s slidein;
+  font-size: 20px;
+  margin: 10px;
+}
+
+@keyframes slidein {
+  from {
+    margin-bottom: -2000px;
+  }
+  to {
+    margin-bottom: 0;
+  }
+}
+
 .search-input,
 .search-button {
   font-size: 50px;
