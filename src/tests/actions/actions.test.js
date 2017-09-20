@@ -83,33 +83,4 @@ describe("Actions", () => {
       });
     });
   });
-
-  describe("user fetch actions", () => {
-    const mockResponse = (status, statusText, response) => {
-      return new window.Response(response, {
-        status: status,
-        statusText: statusText,
-        headers: {
-          "Content-type": "application/json"
-        }
-      });
-    };
-    let mockData;
-    let response;
-
-    beforeEach(() => {
-      fetchMock.post("http://localhost:3000/api/v1/users", {
-        status: 200,
-        body: response
-      });
-    });
-
-    afterEach(() => {
-      fetchMock.restore();
-    });
-
-    it.skip("should fetch user data on login", () => {
-      mockDataUser = { username: "tyler", password: "pizza" };
-    });
-  });
 });
